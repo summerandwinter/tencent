@@ -4032,48 +4032,80 @@ var SuperPlayerExport = function (e) {
       return e.json();
     });
   }
+  // HTTP请求工具函数，用于发送XMLHttpRequest请求
+  // 支持重试、超时、范围请求等功能
   function _A(e) {
-    var t = e.retryCount || 0;
-    var o = +new Date();
-    var i = 0;
+    var t = e.retryCount || 0; // 重试次数，默认为0
+    var o = +new Date(); // 请求开始时间戳
+    var i = 0; // 当前重试计数
+    
+    // 内部请求处理函数
+    // A: Promise的resolve函数，用于返回成功结果
+    // r: Promise的reject函数，用于返回错误信息
     function n(A, r) {
+      // 错误处理函数，支持重试
       function a(e = "xhrNetworkError") {
         if (i < t) {
+          // 如果重试次数未达到上限，增加重试计数并重新发送请求
           i++;
           n(A, r);
         } else {
+          // 如果重试次数已达上限，调用reject返回错误信息
           r({
             error: e,
             target: s
           });
         }
       }
+      
+      // 创建XMLHttpRequest对象
       var s = new XMLHttpRequest();
+      // 打开请求，默认使用GET方法
       s.open(e.method || "get", e.url);
+      
+      // 设置请求超时时间
       if (e.timeout) {
         s.timeout = e.timeout;
       }
+      
+      // 设置响应类型
       if (e.responseType) {
         s.responseType = e.responseType;
       }
+      
+      // 设置是否携带凭证（cookie等）
       s.withCredentials = !!e.withCredentials;
+      
+      // 设置自定义超时处理函数
       s.ontimeout = e.ontimeout;
+      
+      // 如果有范围请求参数，设置Range请求头
       if (e.range) {
         s.setRequestHeader("Range", `bytes=${e.range[0]}-${e.range[1]}`);
       }
+      
+      // 设置自定义请求头
       if (e.headers) {
         Object.keys(e.headers).forEach(function (t) {
           s.setRequestHeader(t, e.headers[t]);
         });
       }
+      
+      // 请求加载完成的处理函数
       s.onload = function () {
+        // 检查HTTP状态码，200表示成功，206表示部分内容（范围请求成功）
         if (s.status !== 200 && s.status !== 206) {
+          // 状态码错误，调用错误处理函数
           a("xhrStatusCodeError");
         } else {
+          // 请求成功，调用方法A（即Promise的resolve函数）返回结果
+          // 方法A的作用是：
+          // 1. 解析Promise，将请求结果传递给调用者
+          // 2. 返回的结果包含：响应数据、XMLHttpRequest对象、请求开始时间戳
           A({
-            data: s.response,
-            target: s,
-            startTimestamp: o
+            data: s.response,       // 响应数据
+            target: s,              // XMLHttpRequest对象
+            startTimestamp: o       // 请求开始时间戳
           });
         }
       };
@@ -10997,24 +11029,37 @@ var SuperPlayerExport = function (e) {
       a(t(s), "destroyed", false);
       a(t(s), "instanceId", undefined);
       a(t(s), "onVideoEncrypted", function (e) {
+        // 视频加密事件处理函数，Widevine解密流程的入口点
+        // e: 加密事件对象，包含initData（初始化数据）和initDataType（初始化数据类型）
         s.logger.log("media encrypted", e);
+        
+        // 检查是否已请求媒体密钥系统
         if (s.mediaKeyPromise) {
+          // 等待媒体密钥系统准备就绪
           s.mediaKeyPromise.then(function () {
+            // 检查是否有媒体密钥描述符
             if (s.mediaKeyDescriptor) {
+              // 检查是否已初始化
               if (s.mediaKeyDescriptor.hasInitialized) {
                 s.logger.warn("Media key-session has been initialized but requested again");
               } else if (s.mediaKeyDescriptor.mediaKeys) {
+                // 检查是否有媒体密钥会话
                 if (s.mediaKeyDescriptor.mediaKeySession) {
+                  // 检查是否有初始化数据
                   if (e.initData) {
+                    // 使用initData生成许可证请求
                     s.mediaKeyDescriptor.mediaKeySession.generateRequest(e.initDataType, e.initData).then(function () {
                       s.logger.log("media key session request generated");
+                      // 生成请求后会触发onMediaKeySessionMessage事件
                     }).catch(function () {
                       s.emit(ys, {
                         code: us.KEY_SESSION_REQUEST_FAILED,
                         message: ns(xa.ERROR_DRM_KEY_SESSION_REQUEST_FAILED)
                       });
                     });
+                    // 保存初始化数据
                     s.mediaKeyDescriptor.initData = e.initData;
+                    // 标记为已初始化
                     s.mediaKeyDescriptor.hasInitialized = true;
                   } else {
                     s.emit(ys, {
@@ -11264,10 +11309,27 @@ var SuperPlayerExport = function (e) {
     }, {
       key: "requestLicense",
       value: function (e, t) {
+        // 许可证请求入口函数，根据配置的keySystem调用对应的许可证请求创建函数
+        // 这是Widevine许可证请求流程的核心路由函数
+        // e: 包含许可证请求消息的事件对象（来自onMediaKeySessionMessage）
+        // t: 许可证响应处理回调函数（用于处理服务器返回的许可证）
         var o;
         if (this.config.licenseUrl) {
-          return (a(o = {}, WA.FairPlayWebKit, this.createFPSLicenseRequest), a(o, WA.Widevine, this.createWidevineLicenseRequest), a(o, WA.PlayReady, this.createPlayReadyLicenseRequest), a(o, WA.FairPlay, this.createFPSLicenseRequest), a(o, WA.PlayReadyHardware, this.createPlayReadyLicenseRequest), a(o, WA.WisePlay, this.createWidevineLicenseRequest), o)[this.config.keySystem].call(this, e, t);
+          // 为不同的DRM系统注册对应的许可证请求创建函数
+          // 构建一个映射表，将DRM系统名称映射到对应的许可证请求创建函数
+          // Widevine对应的是createWidevineLicenseRequest函数
+          // 其他DRM系统（如PlayReady、FairPlay）有各自的处理函数
+          return (a(o = {}, WA.FairPlayWebKit, this.createFPSLicenseRequest), 
+                  a(o, WA.Widevine, this.createWidevineLicenseRequest), 
+                  a(o, WA.PlayReady, this.createPlayReadyLicenseRequest), 
+                  a(o, WA.FairPlay, this.createFPSLicenseRequest), 
+                  a(o, WA.PlayReadyHardware, this.createPlayReadyLicenseRequest), 
+                  a(o, WA.WisePlay, this.createWidevineLicenseRequest), 
+                  // 根据当前配置的keySystem选择对应的许可证请求创建函数
+                  // 对于Widevine，将调用createWidevineLicenseRequest
+                  o)[this.config.keySystem].call(this, e, t);
         }
+        // 如果没有配置许可证服务器URL，触发错误事件
         this.emit(ys, {
           code: us.LICENSE_NOT_EXIST,
           message: ns(Is.ERROR_DRM_LICENSE_NOT_EXIST)
@@ -11339,39 +11401,50 @@ var SuperPlayerExport = function (e) {
     }, {
       key: "onMediaKeySystemObtained",
       value: function (e, t) {
+        // 媒体密钥系统获取成功后的处理函数
+        // e: 媒体密钥系统类型（如"com.widevine.alpha"）
+        // t: MediaKeySystemAccess对象
         var o = this;
         return i(function () {
           var i;
           return F(this, function (n) {
             switch (n.label) {
               case 0:
+                // 创建EME媒体密钥设置超时计时器
                 o.createEMEMediaKeySetupTimeout(o.config.emeMediaKeySetupTimeout);
+                // 创建媒体密钥
                 return [4, t.createMediaKeys()];
               case 1:
+                // 获取创建的媒体密钥
                 i = n.sent();
                 o.logger.log("media keys created");
+                // 初始化媒体密钥描述符
                 o.mediaKeyDescriptor = {
-                  hasInitialized: false,
-                  mediaKeySession: null,
-                  mediaKeySystemAccess: t,
-                  mediaKeys: i,
-                  closed: false
+                  hasInitialized: false, // 是否已初始化
+                  mediaKeySession: null, // 媒体密钥会话
+                  mediaKeySystemAccess: t, // 媒体密钥系统访问对象
+                  mediaKeys: i, // 媒体密钥
+                  closed: false // 是否已关闭
                 };
                 n.label = 2;
               case 2:
                 n.trys.push([2, 5,, 6]);
+                // 处理FairPlay的特殊情况，设置服务器证书
                 if (e !== WA.FairPlay) {
                   return [3, 4];
                 } else {
+                  // 设置FairPlay服务器证书
                   return [4, i.setServerCertificate(A.serverCertificate[WA.FairPlay])];
                 }
               case 3:
                 n.sent();
                 n.label = 4;
               case 4:
+                // 创建媒体密钥会话
                 o.createSessionWithMediaKey(i);
                 return [2, i];
               case 5:
+                // 处理错误情况
                 n.sent();
                 o.clearEMEMediaKeySetupTimeout();
                 o.emit(ys, {
@@ -11450,9 +11523,17 @@ var SuperPlayerExport = function (e) {
     }, {
       key: "onMediaKeySessionMessage",
       value: function (e, t) {
+        // 媒体密钥会话消息处理函数，处理许可证请求消息
+        // 这是Widevine解密流程中的关键环节，负责处理浏览器生成的许可证请求
+        // e: 媒体密钥会话对象（用于后续更新许可证）
+        // t: 包含许可证请求消息的事件对象（由browser的DRM模块生成）
         this.logger.log("received media key session message", t);
+        
+        // Chrome 113版本CDN问题的兼容性处理
+        // 针对Chrome 113版本的特定DRM模块(CDM)版本的兼容性修复
         if (this.config.enableChromeM113Workaround && is.browser.chrome && os.compareVersion(is.browser.version, "113") === 0) {
           try {
+            // 检查CDM版本是否为已知问题版本
             if (new TextDecoder().decode(t.message).includes("4.10.2652.0")) {
               this.emit(ys, {
                 code: us.KEY_SESSION_UPDATE_FAILED,
@@ -11463,49 +11544,95 @@ var SuperPlayerExport = function (e) {
             }
           } catch (e) {}
         }
+        
         var o;
         var n = this;
+        
+        // 调用requestLicense函数获取许可证
+        // 这是许可证请求流程的核心调用，会根据配置的DRM系统路由到对应的处理函数
         this.requestLicense(t, (o = i(function (t) {
-          var i;
-          var A;
-          var a;
-          var s;
+          // 许可证响应处理函数
+          // 当许可证服务器返回响应后，会调用此函数处理许可证数据
+          // t: 包含许可证数据的响应对象（由requestLicenseBySystem返回）
+          var i;  // 许可证数据变量
+          var A;  // 错误变量
+          var a;  // update操作的Promise
+          var s;  // 许可证请求失败的错误信息
+          
+          // 使用F函数实现的异步流程控制（类似async/await）
           return F(this, function (l) {
+            // Widevine视频流解密逻辑的核心流程
+            // 该switch语句实现了EME API中的许可证响应处理和密钥更新流程
             switch (l.label) {
               case 0:
+                // 检查媒体密钥描述符是否已关闭
+                // 如果会话已关闭，不再处理许可证响应，避免无效操作
                 if (n.mediaKeyDescriptor?.closed) {
-                  return [2];
+                  return [2]; // 返回空数组表示结束处理
                 }
                 l.label = 1;
               case 1:
+                // 设置错误捕获点，捕获整个许可证处理流程中的异常
                 l.trys.push([1, 6,, 7]);
+                // 获取许可证数据
+                // t.data包含了从Widevine许可证服务器返回的二进制许可证数据
+                // 这些数据包含了用于解密视频流的密钥信息
                 i = t.data;
+                // 检查是否有自定义的许可证响应处理函数
+                // 业务方可以通过配置该函数对许可证数据进行额外处理
+                // 例如：解密、格式转换、添加额外信息等
                 if (!n.config.licenseResponseSetup) {
+                  // 如果没有自定义处理函数，直接跳转到case 5更新媒体密钥会话
                   return [3, 5];
                 }
                 l.label = 2;
               case 2:
+                // 设置错误捕获点，捕获自定义许可证处理过程中的异常
                 l.trys.push([2, 4,, 5]);
+                // 记录许可证响应处理开始时间
+                // 用于性能监控和统计
                 n.timeStart(Ga.LIC_RES_SET);
+                // 调用自定义的许可证响应处理函数
+                // 允许业务方对Widevine许可证数据进行自定义处理
+                // 这是一个异步操作，返回Promise
                 return [4, n.config.licenseResponseSetup(i)];
               case 3:
+                // 更新许可证数据
+                // l.sent()返回自定义处理函数的结果
+                // 如果处理成功，使用处理后的数据；如果处理失败，使用原始数据
                 i = l.sent() || i;
+                // 记录许可证响应处理结束时间
+                // 用于性能监控和统计许可证处理耗时
                 n.timeEnd(Ga.LIC_RES_SET);
+                // 自定义处理完成，跳转到case 5更新媒体密钥会话
                 return [3, 5];
               case 4:
-                A = l.sent();
+                // 自定义许可证响应处理函数执行失败
+                A = l.sent(); // 获取错误信息
+                // 如果媒体密钥会话未关闭，发出许可证响应处理异常事件
+                // 通知上层应用处理该错误
                 if (!n.mediaKeyDescriptor.closed) {
                   n.emit(ys, {
-                    code: us.LICENSE_RESPONSE_SETUP_EXCEPTION,
-                    detail: A.code ?? 0,
-                    message: ns(Is.ERROR_DRM_LICENSE_REQUEST_FAILED)
+                    code: us.LICENSE_RESPONSE_SETUP_EXCEPTION, // 错误码
+                    detail: A.code ?? 0,                        // 错误详情
+                    message: ns(Is.ERROR_DRM_LICENSE_REQUEST_FAILED) // 错误消息
                   });
                 }
+                // 退出许可证处理流程
                 return [2];
               case 5:
+                // 使用许可证数据更新媒体密钥会话
+                // 这是Widevine解密流程的关键步骤，将服务器返回的许可证应用到媒体密钥会话
                 if (i) {
+                  // 记录日志：准备更新DRM会话
                   n.logger.log("drm ready to update session");
+                  // 更新媒体密钥会话
+                  // e.update(i) 是EME API的核心方法，用于将许可证数据应用到媒体密钥会话
+                  // 这一操作会将许可证中的解密密钥注入到浏览器的DRM模块中
+                  // 成功后，浏览器将能够使用这些密钥解密Widevine加密的视频流
                   if ((a = e.update(i)) != null) {
+                    // 捕获update操作可能的失败
+                    // update操作返回Promise，需要处理可能的异常
                     a.catch(function (e) {
                       if (!n.mediaKeyDescriptor.closed) {
                         n.logger.error("media key session update failed", e == null ? undefined : e.message, e);
@@ -11516,28 +11643,38 @@ var SuperPlayerExport = function (e) {
                       }
                     });
                   }
+                  // 更新完成，跳转到case 7结束流程
                   return [3, 7];
                 } else {
+                  // 许可证响应数据为空，无法更新媒体密钥会话
                   n.logger.error("license response is empty", t.data, i);
+                  // 发出许可证响应数据为空的错误事件
                   n.emit(ys, {
                     code: us.KEY_SESSION_UPDATE_NO_DATA,
                     message: ns(Is.ERROR_DRM_KEY_SESSION_UPDATE_FAILED)
                   });
+                  // 退出处理流程
                   return [2];
                 }
               case 6:
+                // 许可证请求失败
+                // 从服务器获取许可证时发生错误
                 s = l.sent();
                 if (n.mediaKeyDescriptor.closed) {
+                  // 如果会话已关闭，不再处理错误
                   return [2];
                 } else {
+                  // 触发许可证请求失败事件
                   n.emit(ys, {
                     code: us.LICENSE_REQUEST_FAILED,
-                    detail: s.code,
-                    message: ns(Is.ERROR_DRM_LICENSE_REQUEST_FAILED)
+                    detail: s.code, // 错误代码
+                    message: ns(Is.ERROR_DRM_LICENSE_REQUEST_FAILED) // 错误消息
                   });
+                  // 处理完成，跳转到case 7结束流程
                   return [3, 7];
                 }
               case 7:
+                // 许可证处理流程完成
                 return [2];
             }
           });
@@ -11548,6 +11685,9 @@ var SuperPlayerExport = function (e) {
     }, {
       key: "createWidevineLicenseRequest",
       value: function (e, t) {
+        // Widevine许可证请求创建方法 - Widevine视频流解密的核心请求构建函数
+        // e: 包含许可证请求消息的事件对象（来自onMediaKeySessionMessage）
+        // t: 媒体密钥会话对象，用于后续更新密钥
         var o = this;
         return i(function () {
           var i;
@@ -11555,18 +11695,22 @@ var SuperPlayerExport = function (e) {
           return F(this, function (A) {
             switch (A.label) {
               case 0:
+                // 从事件对象中获取Widevine许可证请求消息（二进制数据）
                 i = e.message;
+                // 构建发送到Widevine许可证服务器的HTTP请求参数
                 n = {
-                  method: "POST",
-                  responseType: "arraybuffer",
-                  body: i,
-                  url: o.config.licenseUrl,
+                  method: "POST", // 使用POST方法发送请求，符合Widevine服务器的接口要求
+                  responseType: "arraybuffer", // 响应类型为arraybuffer，因为Widevine许可证是二进制数据
+                  body: i, // 请求体为Widevine许可证请求消息（由generateRequest生成）
+                  url: o.config.licenseUrl, // 从配置中获取许可证服务器URL
                   headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
+                    "Content-Type": "application/x-www-form-urlencoded" // 请求内容类型，Widevine服务器通常要求此格式
                   }
                 };
+                // 调用通用许可证请求发送函数，将构建好的请求发送到服务器
                 return [4, o.requestLicenseBySystem(n, t)];
               case 1:
+                // 许可证请求已发送完成，等待服务器响应
                 A.sent();
                 return [2];
             }
@@ -11636,6 +11780,10 @@ var SuperPlayerExport = function (e) {
     }, {
       key: "requestLicenseBySystem",
       value: function (e, t) {
+        // 通用许可证请求方法，适用于所有DRM系统（包括Widevine）
+        // 这是实际发送许可证请求到服务器的核心函数
+        // e: HTTP请求参数（由createWidevineLicenseRequest等函数构建）
+        // t: 许可证响应处理回调函数（用于处理服务器返回的许可证数据）
         var o = this;
         return i(function () {
           var i;
@@ -11647,19 +11795,29 @@ var SuperPlayerExport = function (e) {
           return F(this, function (g) {
             switch (g.label) {
               case 0:
+                // 检查是否有自定义的许可证请求设置函数
+                // 允许业务方对许可证请求进行自定义处理（如添加认证信息、修改请求头）
                 if (!o.config.licenseRequestSetup) {
                   return [3, 4];
                 }
                 g.label = 1;
               case 1:
+                // 处理许可证请求设置
+                // 如果配置了自定义请求设置函数，调用它对请求进行处理
                 g.trys.push([1, 3,, 4]);
                 o.timeStart(Ga.LIC_REQ_SET);
+                // 调用自定义的许可证请求设置函数
+                // 可以在这里添加认证信息、修改请求格式等
                 return [4, o.config.licenseRequestSetup(e)];
               case 2:
+                // 更新请求参数
+                // 使用自定义处理后的请求参数
                 e = g.sent();
                 o.timeEnd(Ga.LIC_REQ_SET);
                 return [3, 4];
               case 3:
+                // 许可证请求设置失败
+                // 自定义请求设置函数执行失败
                 i = g.sent();
                 o.emit(ys, {
                   code: us.LICENSE_REQUEST_SETUP_EXCEPTION,
@@ -11668,16 +11826,26 @@ var SuperPlayerExport = function (e) {
                 });
                 return [3, 4];
               case 4:
+                // 发送许可证请求
+                // 向许可证服务器发送HTTP请求
                 g.trys.push([4, 6,, 7]);
                 o.timeStart(Ga.LIC_REQ);
+                // 使用xhr发送HTTP请求到许可证服务器
+                // Wa.xhr是一个封装的XMLHttpRequest对象，用于发送异步HTTP请求
                 return [4, Wa.xhr(e)];
               case 5:
+                // 许可证请求成功
+                // 成功接收到服务器返回的许可证数据
                 A = g.sent();
                 o.logger.log("requestLicenseBySystem succ!");
                 o.timeEnd(Ga.LIC_REQ);
+                // 调用回调函数处理响应数据
+                // t是onMediaKeySessionMessage中定义的许可证响应处理函数
                 t(A);
                 return [3, 7];
               case 6:
+                // 许可证请求失败
+                // 向服务器发送请求时发生错误
                 r = g.sent();
                 s = (a = r || {}).code;
                 l = a.message;
@@ -11689,6 +11857,7 @@ var SuperPlayerExport = function (e) {
                 });
                 return [3, 7];
               case 7:
+                // 许可证请求流程完成
                 return [2];
             }
           });
@@ -18387,32 +18556,52 @@ var SuperPlayerExport = function (e) {
     };
     return ng(e);
   }
+  /**
+   * 对象属性过滤工具函数
+   * 从对象中排除指定属性并返回新对象（类似Lodash的omit函数）
+   * 
+   * @param {Object|null|undefined} e - 源对象
+   * @param {Array<string|symbol>} t - 需要排除的属性名称/符号数组
+   * @returns {Object} - 排除指定属性后的新对象
+   */
   function Ag(e, t) {
+    // 源对象为空时返回空对象
     if (e == null) {
       return {};
     }
-    var o;
-    var i;
+    var o; // 临时变量：属性名/符号
+    var i; // 临时变量：循环索引
+    
+    // 处理普通属性
     var n = function (e, t) {
+      // 源对象为空时返回空对象
       if (e == null) {
         return {};
       }
-      var o;
-      var i;
-      var n = {};
+      var o; // 临时变量：属性名
+      var i; // 临时变量：循环索引
+      var n = {}; // 结果对象
+      // 获取源对象的所有可枚举属性名
       var A = Object.keys(e);
+      // 遍历属性名数组
       for (i = 0; i < A.length; i++) {
         o = A[i];
+        // 如果属性名不在排除列表中，则复制到结果对象
         if (!(t.indexOf(o) >= 0)) {
           n[o] = e[o];
         }
       }
       return n;
     }(e, t);
+    
+    // 处理符号属性（兼容性处理）
     if (Object.getOwnPropertySymbols) {
+      // 获取源对象的所有符号属性
       var A = Object.getOwnPropertySymbols(e);
+      // 遍历符号属性数组
       for (i = 0; i < A.length; i++) {
         o = A[i];
+        // 如果符号不在排除列表中且属性是可枚举的，则复制到结果对象
         if (!(t.indexOf(o) >= 0)) {
           if (Object.prototype.propertyIsEnumerable.call(e, o)) {
             n[o] = e[o];
@@ -18420,6 +18609,7 @@ var SuperPlayerExport = function (e) {
         }
       }
     }
+    
     return n;
   }
   Ka.superPlayer = {
@@ -25215,6 +25405,7 @@ var SuperPlayerExport = function (e) {
         if (o === e.PLAY_EVENT.STATE_CHANGE) {
           i.old;
           var n = i.new;
+          // 使用Ag过滤掉状态变化对象中的old和new字段，只传递其他相关信息
           var A = Ag(i, ["old", "new"]);
           if (eu[n]) {
             this.emitters.emitPlayerEvts(eu[n], A);
@@ -32576,28 +32767,44 @@ var SuperPlayerExport = function (e) {
   })();
   var xp = "{\"ads\":[],\"ad\":{}}";
   var Vp = ["ads", "ad"];
+  /**
+   * 发送请求中间件（sendRequestMiddleWare）的默认实现
+   * 负责处理视频信息的网络请求，包括重试机制和错误处理
+   * 
+   * @returns {Function} - 中间件函数
+   */
   var Hp = function () {
+    /**
+     * 实际的请求处理逻辑
+     * 使用自定义生成器函数实现异步流程控制
+     * 
+     * @param {Object} t - 中间件执行上下文
+     * @param {Function} o - 下一个中间件函数
+     * @returns {Promise} - 处理结果的Promise
+     */
     var t = i(function (t, o) {
-      var n;
-      var A;
-      var r;
-      var a;
-      var s;
-      var l;
-      var g;
-      var c;
-      var u;
-      var E;
-      var B;
-      var h;
-      var p;
-      var v;
-      var f;
-      var I;
-      var y;
-      var C;
+      var n; // 配置对象
+      var A; // 重试次数配置
+      var r; // 实际重试次数限制
+      var a; // 错误信息
+      var s; // 当前重试次数
+      var l; // 标记是否处理过85-3错误
+      var g; // 响应修改器
+      var c; // 请求开始时间
+      var u; // 响应数据
+      var E; // 临时响应数据
+      var B; // 当前时间
+      var h; // 异常信息
+      var p; // 异常消息
+      var v; // 异常代码
+      var f; // 最终响应数据
+      var I; // flash相关数据
+      var y; // 视频列表数据
+      var C; // 过滤后的数据
+      // F函数创建一个自定义生成器对象，m包含状态信息和sent方法
       return F(this, function (m) {
         var Q = Kp;
+        // 状态机的核心逻辑，通过label控制流程
         switch (m.label) {
           case 0:
             t.logger.log("send start");
@@ -32651,7 +32858,11 @@ var SuperPlayerExport = function (e) {
               return [4, jp(t)];
             }
           case 3:
+            // m.sent()的核心用法1：获取上一个异步操作的结果
+            // 上一个异步操作是case 2中的jp(t)请求
+            // m.sent()会返回异步操作的结果并标记当前状态完成
             E = m.sent();
+            // 设置下一个状态标签
             m.label = 4;
           case 4:
             u = E;
@@ -32659,6 +32870,10 @@ var SuperPlayerExport = function (e) {
             Ln.start(Ap.RES_MODIFY, t.playerInstanceId);
             return [4, (g = n.responseModifier) === null || g === undefined ? undefined : g.call(n, u)];
           case 5:
+            // m.sent()的核心用法2：获取响应修改器的处理结果
+            // 上一个异步操作是case 4中的responseModifier调用
+            // 使用空值合并运算符(??)确保如果修改器返回undefined，仍使用原始响应数据
+            // TODO 经过观察这里调用 m.sent() 方法以后resData就变成明文了
             t.resData = m.sent() ?? u;
             Ln.end(Ap.RES_MODIFY, t.playerInstanceId);
             if (t.resData) {
@@ -32674,7 +32889,11 @@ var SuperPlayerExport = function (e) {
               return [3, 8];
             }
           case 6:
+            // m.sent()的核心用法3：标记异步操作完成（忽略结果）
+            // 上一个异步操作是case 5中的Cp.update调用
+            // 这里只需要知道操作完成，不需要获取结果
             m.sent();
+            // 标记已处理过85-3错误
             l = true;
             return [3, 1];
           case 7:
@@ -32682,8 +32901,13 @@ var SuperPlayerExport = function (e) {
           case 8:
             return [3, 11];
           case 9:
+            // m.sent()的核心用法4：捕获异步操作的异常
+            // 这里捕获的是case 2-8中的任何异常
+            // 异常信息存储在h中
             h = m.sent();
+            // 提取异常消息
             p = h == null ? undefined : h.message;
+            // 提取异常代码
             v = h == null ? undefined : h.code;
             t.logger.error(`the ${s} request err, code=${v}, msg=${p}`);
             if (p === "jsonp timeout") {
@@ -32704,6 +32928,8 @@ var SuperPlayerExport = function (e) {
               return [4, new Cp(t).update()];
             }
           case 10:
+            // m.sent()的核心用法5：标记异常处理中的异步操作完成
+            // 上一个异步操作是case 9中的Cp.update调用
             m.sent();
             return [3, 11];
           case 11:
@@ -32725,6 +32951,7 @@ var SuperPlayerExport = function (e) {
               f = t.resData;
               I = f.fl;
               y = f.vl;
+              // 使用Ag过滤掉响应数据中的fl（可能是flash相关数据）和vl（可能是视频列表数据）字段，只记录其他信息
               C = Ag(f, ["fl", "vl"]);
               t.logger.cache("send over", C);
               t.logger.cache("send over", I);
@@ -32732,6 +32959,8 @@ var SuperPlayerExport = function (e) {
             } catch (e) {}
             return [4, o()];
           case 13:
+            // m.sent()的核心用法6：标记最终异步操作完成
+            // 上一个异步操作是case 12中的o()调用（下一个中间件）
             m.sent();
             return [2];
         }
@@ -33624,20 +33853,42 @@ var SuperPlayerExport = function (e) {
   }();
   _([yv, D("design:type", Function), D("design:paramtypes", []), D("design:returntype", undefined)], Cv.prototype, "start", null);
   var mv;
+  /**
+   * 默认的响应解析中间件实现
+   * 负责创建Cv实例并启动视频信息解析流程
+   * 
+   * @param {Object} e - 中间件执行上下文
+   * @param {Function} t - 下一个中间件函数
+   * @returns {Promise} - 处理结果的Promise
+   */
   mv = i(function (e, t) {
     return F(this, function (o) {
       var i = Iv;
       switch (o.label) {
         case 0:
+          // 创建Cv实例并启动视频信息解析
+          // Cv类负责实际的视频信息解析工作
           new Cv(e).start();
+          // 调用下一个中间件
           return [4, t()];
         case 1:
+          // 等待下一个中间件执行完成
           o.sent();
+          // 完成当前中间件执行
           return [2];
       }
     });
   });
+  /**
+   * 默认的解析响应中间件入口函数
+   * 是parseResponseMiddleWare的默认实现
+   * 
+   * @param {Object} e - 中间件执行上下文
+   * @param {Function} t - 下一个中间件函数
+   * @returns {Promise} - 处理结果的Promise
+   */
   function Qv(e, t) {
+    // 调用mv函数完成实际的解析工作
     return mv.apply(this, arguments);
   }
   var wv = Tv;
@@ -33751,32 +34002,52 @@ var SuperPlayerExport = function (e) {
     }, {
       key: "parseExternalVideoInfo",
       value: function (e, t, o) {
+        /**
+         * 解析外部视频信息的核心方法
+         * 使用中间件模式处理视频信息的请求、检查和解析流程
+         * 
+         * @param {string} e - 视频ID
+         * @param {Object} t - 外部视频信息数据
+         * @param {Object} [o] - 配置选项对象
+         * @returns {Promise} - 处理结果的Promise
+         */
         var n = this;
         return i(function () {
-          var i;
-          var A;
-          var r;
-          var a;
-          var s;
-          var l;
+          var i; // 中间件执行上下文
+          var A; // 发送请求中间件
+          var r; // 检查响应中间件
+          var a; // 解析响应中间件
+          var s; // 前置中间件数组
+          var l; // 后置中间件数组
           return F(this, function (g) {
             var c = Tv;
+            // 初始化中间件执行上下文
             if (o) {
+              // 如果提供了配置对象，使用该对象并设置序列标识
               n.seq += 1;
               o.seq = n.seq;
               i = o;
             } else {
+              // 如果没有提供配置对象，使用prepare方法创建一个
               i = n.prepare(e);
             }
+            // 将外部视频信息数据赋值给上下文
             i.resData = t;
-            A = n.config.sendRequestMiddleWare || Hp;
-            r = n.config.checkResponseMiddleWare || nv;
-            a = n.config.parseResponseMiddleWare || Qv;
-            s = n.config.preMiddlewares || [];
-            l = n.config.postMiddlewares || [];
+            
+            // 获取或使用默认中间件
+            A = n.config.sendRequestMiddleWare || Hp; // 发送请求中间件，默认Hp
+            r = n.config.checkResponseMiddleWare || nv; // 检查响应中间件，默认nv
+            a = n.config.parseResponseMiddleWare || Qv; // 解析响应中间件，默认Qv
+            s = n.config.preMiddlewares || []; // 前置中间件数组
+            l = n.config.postMiddlewares || []; // 后置中间件数组
+            
+            // 核心：构建中间件执行管道并执行
+            // 执行顺序：前置中间件 → 发送请求中间件 → 检查响应中间件 → 解析响应中间件 → 后置中间件
             n.cachedResult[e] = ip(C(s).concat([A, r, a], C(l)))(i).then(function () {
+              // 中间件执行成功回调
               return n.onMiddlewareExecuteSuccess(i);
             }).catch(function (e) {
+              // 中间件执行失败回调
               return n.onMiddlewareExecutionFail(i, e);
             });
             return [2];
@@ -33897,6 +34168,7 @@ var SuperPlayerExport = function (e) {
               e.parseData;
               e.resData;
               e.reqParams;
+              // 使用Ag过滤掉WMS响应数据中的内部处理字段（parseData、resData、reqParams），只记录其他信息
               i = Ag(e, ["parseData", "resData", "reqParams"]);
               o.logger.log("wms exec succ", i);
               if (t) {
@@ -34782,6 +35054,7 @@ var SuperPlayerExport = function (e) {
           r.parseData;
           r.resData;
           r.reqParams;
+          // 使用Ag过滤掉WMS响应数据中的内部处理字段（parseData、resData、reqParams），只记录其他信息
           var e = Ag(r, ["parseData", "resData", "reqParams"]);
           i.logger.log("wms exec succ", e);
           return i.formatOutputData(r);
@@ -35673,6 +35946,7 @@ var SuperPlayerExport = function (e) {
         if (e) {
           this.log("setting definition options to player", e == null ? undefined : e.map(function (e) {
             e.label;
+            // 使用Ag过滤掉视频清晰度配置中的label字段，只保留其他信息
             return Ag(e, ["label"]);
           }));
           this.player.setCommonKv(Nc.currentDefnList, e);
@@ -43969,35 +44243,66 @@ ${jf}`
     }, {
       key: "parseResponseData",
       value: function (e) {
+        // 解析响应数据函数
+        // 该函数用于解析代理HTTP请求返回的广告和视频信息数据
+        // e: 包含响应数据的对象，结构为 { resData, reqParams, ... }
         var i = t;
+        
+        // 检查是否启用了可信JSON解析器
+        // 从配置中获取tvkConfig.enableTrustedJSON设置
         var n = (this.config.tvkConfig || {}).enableTrustedJSON;
+        
+        // 如果存在响应数据，则进行解析
         if (e.resData) {
+          // 检查响应是否成功（errCode === 0表示成功）
           if (e.resData.errCode === 0) {
+            // 初始化解析后的数据对象
             e.parseData = {};
+            
+            // 获取SSP Key
+            // 从请求参数的adparam中提取sspKey值
             var A = this.getSspKey(e.reqParams?.adparam);
+            
+            // 获取广告数据
+            // 优先使用SSP Key对应的字段，如果不存在则使用ad字段
             var r = e.resData[A] || e.resData.ad;
+            
+            // 解析广告数据
             if (r) {
               try {
+                // 根据配置选择解析方式：可信解析器或标准JSON解析
+                // NC.parse：可信JSON解析器，提供额外的安全性
+                // JSON.parse：标准JSON解析器
                 e.parseData.ad = n ? NC.parse(r) : JSON.parse(r);
               } catch (e) {
+                // 解析失败时记录警告日志
                 this.logger.warn("can not parse adStr", {
                   adStr: r,
                   message: e == null ? undefined : e.message
                 });
               }
+              // 记录解析后的广告数据
               this.logger.log("ad res=", e.parseData.ad);
             }
+            
+            // 解析视频信息数据
             if (e.resData.vinfo) {
               try {
+                // 解析视频信息JSON字符串
                 e.parseData.vinfo = JSON.parse(e.resData.vinfo);
               } catch (t) {
+                // 解析失败时记录警告日志
                 this.logger.warn("can not parse vinfoStr", {
                   vinfoStr: e.resData.vinfo,
                   message: t == null ? undefined : t.message
                 });
               }
+              // 记录解析后的视频信息
               this.logger.log("v res=", e.parseData.vinfo);
             }
+            
+            // 处理广告Cookie
+            // tp函数可能用于设置本地广告Cookie
             tp(e.resData.lcAdCookie);
           } else {
             e.error = {
@@ -44476,22 +44781,53 @@ ${jf}`
     }, {
       key: "parseResData",
       value: function (t, o) {
+        /**
+         * 解析视频信息响应数据的核心方法
+         * 使用状态机模式处理异步视频信息请求和验证流程
+         * 
+         * @param {string} t - 视频ID
+         * @param {Object} o - 包含响应数据和配置的对象
+         * @param {Object} [o.resData] - 已有的视频信息数据（可选）
+         * @param {boolean} [o.isCheckSrvDataValid] - 是否验证服务端数据有效性
+         * @param {Object} [o.reqParams] - 请求参数
+         * @param {Object} [o.adInfo] - 广告信息
+         * @param {Object} [o.adInfoReqParams] - 广告信息请求参数
+         * @param {boolean} [o.emitEvtDefer] - 是否延迟触发事件
+         * @param {Object} [o.emitEvtOpaque] - 事件透传数据
+         * @returns {Promise<Object>} - 包含视频信息的对象
+         */
         var n = this;
+        // 自定义异步流程控制函数，模拟async/await行为
         return i(function () {
-          var i;
-          var A;
+          var i; // 保存视频信息的变量
+          var A; // 临时变量
+          // F函数实现状态机模式，r包含状态信息（label、ops、trys等）
           return F(this, function (r) {
             var a = XC;
+            // 状态机的核心逻辑，通过label控制流程
             switch (r.label) {
               case 0:
+                // 状态0：初始化视频信息变量
+                // 初始化为null，等待后续赋值
                 i = null;
+                // 检查是否已存在视频信息数据(resData)
                 if (o.resData) {
+                  // 如果已存在resData，调用setVideoInfo方法设置视频信息
+                  // [4, ...]表示发起一个异步操作请求
+                  // t是视频ID，o.resData是已有的视频信息，o是配置参数
                   return [4, n.vodGetinfo.setVideoInfo(t, o.resData, o)];
                 } else {
+                  // 如果没有resData，直接跳转到状态4
+                  // [3, 4]表示跳转到状态4，不发起异步操作
                   return [3, 4];
                 }
               case 1:
+                // 状态1：视频信息设置完成后，发起视频信息请求
+                // r.sent()获取上一个异步操作(setVideoInfo)的结果并标记当前状态完成
                 r.sent();
+                // [4, ...]表示发起一个异步操作请求
+                // 调用vodGetinfo模块的request方法获取视频信息
+                // t是视频ID参数
                 return [4, n.vodGetinfo.request(t)];
               case 2:
                 i = r.sent();
@@ -55035,83 +55371,117 @@ ${jf}`
       };
     }
     return A;
+    // 生成器函数实现，用于异步流程控制
+    // 这是一个递归嵌套的函数结构，实现了类似 async/await 的异步流程控制
+    // 主要用于 Widevine 解密流程中的异步操作管理
     function a(A) {
+      // 第一层返回函数，接收参数 A
       return function (a) {
+        // 第二层返回函数，接收参数 a
         return function (A) {
+          // 检查生成器是否正在执行，如果是则抛出错误
           if (o) {
             throw new TypeError("Generator is already executing.");
           }
+          
+          // 主循环，处理生成器的执行流程
           while (r) {
             try {
-              o = 1;
+              o = 1; // 标记生成器正在执行
+              
+              // 处理生成器的方法调用（next/throw/return）
               if (i && (n = A[0] & 2 ? i.return : A[0] ? i.throw || ((n = i.return) && n.call(i), 0) : i.next) && !(n = n.call(i, A[1])).done) {
+                // 如果生成器未完成，返回当前值
                 return n;
               }
-              i = 0;
+              
+              i = 0; // 重置生成器状态
+              
+              // 如果有返回值，更新 A 的状态
               if (n) {
                 A = [A[0] & 2, n.value];
               }
+              
+              // 根据 A[0] 的值处理不同的流程控制指令
               switch (A[0]) {
-                case 0:
-                case 1:
+                case 0: // 正常流程
+                case 1: // 正常流程
                   n = A;
                   break;
-                case 4:
-                  r.label++;
+                case 4: // 异步操作完成，返回值
+                  r.label++; // 增加标签计数
                   return {
-                    value: A[1],
-                    done: false
+                    value: A[1], // 返回异步操作的结果
+                    done: false // 生成器未完成
                   };
-                case 5:
-                  r.label++;
-                  i = A[1];
-                  A = [0];
+                case 5: // 等待异步操作，设置迭代器
+                  r.label++; // 增加标签计数
+                  i = A[1]; // 设置迭代器
+                  A = [0]; // 重置 A，进入下一轮循环
                   continue;
-                case 7:
-                  A = r.ops.pop();
-                  r.trys.pop();
+                case 7: // 弹出操作和错误处理栈
+                  A = r.ops.pop(); // 弹出操作栈
+                  r.trys.pop(); // 弹出错误处理栈
                   continue;
                 default:
+                  // 处理异常和返回操作
                   if (!(n = r.trys, (n = n.length > 0 && n[n.length - 1]) || A[0] !== 6 && A[0] !== 2)) {
-                    r = 0;
+                    r = 0; // 重置状态
                     continue;
                   }
+                  
+                  // 处理 break 操作
                   if (A[0] === 3 && (!n || A[1] > n[0] && A[1] < n[3])) {
                     r.label = A[1];
                     break;
                   }
+                  
+                  // 处理异常
                   if (A[0] === 6 && r.label < n[1]) {
                     r.label = n[1];
                     n = A;
                     break;
                   }
+                  
+                  // 处理 try/finally
                   if (n && r.label < n[2]) {
                     r.label = n[2];
                     r.ops.push(A);
                     break;
                   }
+                  
+                  // 处理 finally 块
                   if (n[2]) {
                     r.ops.pop();
                   }
                   r.trys.pop();
                   continue;
               }
+              
+              // 调用生成器函数，获取下一个状态
               A = t.call(e, r);
             } catch (e) {
+              // 捕获异常，设置 A 为异常状态
               A = [6, e];
-              i = 0;
+              i = 0; // 重置生成器状态
             } finally {
+              // 重置执行状态
               o = n = 0;
             }
           }
+          
+          // 处理最终结果
           if (A[0] & 5) {
+            // 如果是异常，抛出错误
             throw A[1];
           }
+          
+          // 返回最终结果
           return {
-            value: A[0] ? A[1] : undefined,
-            done: true
+            value: A[0] ? A[1] : undefined, // 返回值
+            done: true // 生成器完成
           };
-        }([A, a]);
+        }([A, a]); // 立即执行最内层函数，传入初始参数
       };
     }
   }

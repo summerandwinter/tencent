@@ -162,4 +162,26 @@ eiY+JugBJt4BPiamASb
     exports: {}
   };
 
-  onMediaKeySessionMessage
+onMediaKeySessionMessage
+
+this.player.getCommonKv(Nc.drm);
+createWidevineLicenseRequest
+
+Wa.xhr
+
+
+
+o[A(451)](i), -> parseResponseData
+
+第一步
+A[p(451)](l) -> parseResponseData
+第二步
+key: A(136),-> parseResData
+key: t(232), -> setVideoInfo
+
+key: t(331), -> setVideoInfo
+key: t(245), -> parseExternalVideoInfo
+
+
+Hp = function() { ->   Hp = function () {
+"https://h5vv6.video.qq.com/getvinfo"
