@@ -185,3 +185,8 @@ key: t(245), -> parseExternalVideoInfo
 
 Hp = function() { ->   Hp = function () {
 "https://h5vv6.video.qq.com/getvinfo"
+
+
+n.responseModifier -> return function g() {
+
+n.responseModifier(aa)
