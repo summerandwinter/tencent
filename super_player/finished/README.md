@@ -188,5 +188,3 @@ Hp = function() { ->   Hp = function () {
 
 
 n.responseModifier -> return function g() {
-
-n.responseModifier(aa)
