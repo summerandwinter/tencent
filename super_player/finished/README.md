@@ -191,3 +191,5 @@ n.responseModifier -> return function g() {
 
 
 npm install express puppeteer body-parser
+
+npm install jsdom canvas
