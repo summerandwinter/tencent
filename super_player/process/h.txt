@@ -1,0 +1,70 @@
+// 查看 TEE 函数本身的属性
+console.log("TEE 的静态属性:", Object.keys(window.TEE));
+
+// 尝试直接查找
+if (window.TEE.getTEEState) {
+    console.log(">>> 发现静态方法 getTEEState，尝试调用...");
+    console.log(window.TEE.getTEEState());
+}
+VM311:2 TEE 的静态属性: (5) ['configure', 'supported', 'getPublicContext', 'install', 'uninstall']
+undefined
+Error saving setting with name: console-history, value length: 7936858. Error: Failed to set a named property 'console-history' on 'Storage': Setting the value of 'console-history' exceeded the quota.
+Ten largest settings: 
+Setting: 'console-history', size: 5140001
+Setting: 'breakpoints', size: 8769
+Setting: 'previously-viewed-files', size: 3872
+Setting: 'ai-assistance', size: 79
+Setting: 'network-search-config', size: 46
+Setting: 'xhr-breakpoints', size: 37
+Setting: 'localInspectorVersion', size: 2
+Setting: 'experiments', size: 2
+Setting: 'persistent-highlight-setting', size: 2
+Setting: 'length', size: undefined
+window.TEE.supported
+ƒ g(){for(var c,u,E,d,B=[o,s,t,this,arguments,g,i,0],h=void 0,p=e,v=[];;)try{for(;;)switch(i[++p]^B[7]){case 0:case 30:B[i[++p]]=B[i[++p]]==B[i[++p]];break;case 1:B[i[++p]]=B[i[++p]]^B[i[++p]];break;ca…
+Error saving setting with name: console-history, value length: 7937568. Error: Failed to set a named property 'console-history' on 'Storage': Setting the value of 'console-history' exceeded the quota.
+Ten largest settings: 
+Setting: 'console-history', size: 5140001
+Setting: 'breakpoints', size: 8769
+Setting: 'previously-viewed-files', size: 3872
+Setting: 'ai-assistance', size: 79
+Setting: 'network-search-config', size: 46
+Setting: 'xhr-breakpoints', size: 37
+Setting: 'localInspectorVersion', size: 2
+Setting: 'experiments', size: 2
+Setting: 'persistent-highlight-setting', size: 2
+Setting: 'length', size: undefined
+// 1. 检查有没有 install 或 init 方法
+if (window.TEE.install) {
+    console.log(">>> 发现 install 方法，尝试模拟安装...");
+    
+    // 我们需要传入之前伪造的 Player 对象
+    // 由于之前环境是隔离的，这里重新简单伪造一个
+    var dummyPlayer = {
+        config: {},
+        setCommonKv: function(k, v) { console.log(`[TEE Install] Set ${k}=`, v); },
+        getCommonKv: function(k) { return ""; },
+        on: function() {},
+        off: function() {}
+    };
+
+    try {
+        window.TEE.install(dummyPlayer);
+        console.log("安装完成！现在检查 dummyPlayer 是否被挂载了新方法...");
+        console.log(dummyPlayer);
+        
+        // 有时候 install 会把方法挂载到 player 对象上，或者初始化内部单例
+    } catch(e) {
+        console.error("Install 失败:", e);
+    }
+}
+VM338:3 >>> 发现 install 方法，尝试模拟安装...
+VM338:9 [TEE Install] Set TEE_CONTEXT_DATA= Proxy(Function) {length: 0, name: 'func', prototype: {…}, arguments: null, caller: null}
+VM338:22 Install 失败: TypeError: Cannot read properties of undefined (reading 'on')
+    at g (<anonymous>:185:75606)
+    at new g (<anonymous>:185:73435)
+    at new g (<anonymous>:185:76176)
+    at g [as install] (<anonymous>:185:74020)
+    at <anonymous>:16:20
+（匿名） @ VM338:22
+undefined

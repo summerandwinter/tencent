@@ -1,0 +1,123 @@
+由于要“保留日志”，系统已阻止 console.clear() 发挥作用
+VM285:54 >>> 初始化虚拟环境...
+VM285:83 >>> 准备就绪，正在等待执行...
+VM285:24 [参数探测] 读取属性: YS.Logger
+VM285:24 [参数探测] 读取属性: YS.Logger.prototype.cacheLog
+2VM285:24 [参数探测] 读取属性: YS.Logger
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.base64
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.setMask
+VM285:33 [方法调用] YS.encodingTool.setMask(...) 参数: (2) [Symbol(), '\x003\x00\x00\x00+\x00\x00w44+7\x00\x00\x00\x003\x004k\x00S\x00\x00\x00\x00+\x007\x00\x00\x00\x00\x00\x006\x00\x00\x00\x00\x00\x00v\x00\x00\x00\x00\x008…\x00\x00\x00\x00\x00\x00l\x00\x002x\x00F\x00o\x00\x00\x00z\x00\x00\x00\x00C\x00\x00\x00q\x002\x00Ig\x00C\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00']
+VM285:24 [参数探测] 读取属性: YS.ErrorTypeCodeMap
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.base64
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.utf8
+VM285:24 [参数探测] 读取属性: YS.hashTool
+VM285:24 [参数探测] 读取属性: YS.hashTool.md5
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.hex
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.utf8
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.utf8
+VM285:24 [参数探测] 读取属性: YS.hashTool
+VM285:24 [参数探测] 读取属性: YS.hashTool.md5
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.base64
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.utf8
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.base64
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.utf8
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.base64
+VM285:24 [参数探测] 读取属性: YS.encodingTool
+VM285:24 [参数探测] 读取属性: YS.encodingTool.utf8
+undefined
+VM285:101 -------------------------------------------
+VM285:106 导出成功！已挂载到 window.myExports
+VM285:110 正在尝试自动调用 default 方法...
+VM285:24 [参数探测] 读取属性: YS.lsTool
+VM285:24 [参数探测] 读取属性: YS.lsTool.getData
+VM285:33 [方法调用] YS.lsTool.getData(...) 参数: ['__tee_features']
+VM285:24 [参数探测] 读取属性: YS.encodingTool.base64.toUint8Array
+VM285:33 [方法调用] YS.encodingTool.base64.toUint8Array(...) 参数: (2) ['MzICdLIB6pueugkqhXisRwcBAQEmAvSCAmAwQgJcAgE7AoGBAv…NDqWlsXhYSHEuvZoKmMwTop1tl+0aCS8QK3jhsiIVUDppxg==', Symbol()]
+VM285:24 [参数探测] 读取属性: YS.encodingTool.base64.toUint8Array.then
+VM285:24 [参数探测] 读取属性: YS.encodingTool.base64.toUint8Array
+VM285:33 [方法调用] YS.encodingTool.base64.toUint8Array(...) 参数: (2) ['MzICdLIB6pueugkqhXisRwcBAQEmAvSCAmAwQgJcAgE7AoGBAv…NDqWlsXhYSHEuvZoKmMwTop1tl+0aCS8QK3jhsiIVUDppxg==', Symbol()]
+VM285:24 [参数探测] 读取属性: YS.encodingTool.base64.toUint8Array.then
+VM285:24 [参数探测] 读取属性: ConfigArg.setCommonKv
+VM285:24 [参数探测] 读取属性: YS.jsonTool
+VM285:24 [参数探测] 读取属性: YS.jsonTool.safelyStringify
+VM285:33 [方法调用] YS.jsonTool.safelyStringify(...) 参数: [g]
+VM285:33 [方法调用] ConfigArg.setCommonKv(...) 参数: (2) ['TEE_CONTEXT_DATA', Proxy(Function)]
+VM285:24 [参数探测] 读取属性: ConfigArg.on
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT.VIDEO_SEEKING
+VM285:33 [方法调用] ConfigArg.on(...) 参数: (2) [Proxy(Function), ƒ]
+VM285:24 [参数探测] 读取属性: ConfigArg.on
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT.PLAY_SESSION_START
+VM285:33 [方法调用] ConfigArg.on(...) 参数: (2) [Proxy(Function), ƒ]
+VM285:24 [参数探测] 读取属性: YS.DrmKeySystems
+VM285:24 [参数探测] 读取属性: YS.DrmKeySystems.PlayReadyHardware
+VM285:24 [参数探测] 读取属性: YS.videoTool
+VM285:24 [参数探测] 读取属性: YS.videoTool.isEncryptionSupported
+VM285:24 [参数探测] 读取属性: YS.videoTool
+VM285:33 [方法调用] YS.videoTool.isEncryptionSupported(...) 参数: (2) ['com.widevine.alpha.experiment', {…}]
+VM285:24 [参数探测] 读取属性: YS.videoTool.isEncryptionSupported.then
+VM285:33 [方法调用] YS.videoTool.isEncryptionSupported.then(...) 参数: [ƒ]
+VM285:24 [参数探测] 读取属性: YS.videoTool
+VM285:24 [参数探测] 读取属性: YS.videoTool.isEncryptionSupported
+VM285:24 [参数探测] 读取属性: YS.videoTool
+VM285:33 [方法调用] YS.videoTool.isEncryptionSupported(...) 参数: [Proxy(Function)]
+VM285:24 [参数探测] 读取属性: YS.videoTool.isEncryptionSupported.then
+VM285:33 [方法调用] YS.videoTool.isEncryptionSupported.then(...) 参数: [ƒ]
+VM285:24 [参数探测] 读取属性: YS.videoTool
+VM285:24 [参数探测] 读取属性: YS.videoTool.isHardwareAccelerated
+VM285:33 [方法调用] YS.videoTool.isHardwareAccelerated(...) 参数: []
+VM285:24 [参数探测] 读取属性: YS.videoTool
+VM285:24 [参数探测] 读取属性: YS.videoTool.collectGPUInfo
+VM285:33 [方法调用] YS.videoTool.collectGPUInfo(...) 参数: []
+VM285:24 [参数探测] 读取属性: YS.videoTool.collectGPUInfo.renderer
+VM285:24 [参数探测] 读取属性: ConfigArg.pluginMsg
+VM285:24 [参数探测] 读取属性: ConfigArg.pluginMsg.on
+VM285:24 [参数探测] 读取属性: RS.H5_EXT_EVENT
+VM285:24 [参数探测] 读取属性: RS.H5_EXT_EVENT.GETINFO_OVER
+VM285:33 [方法调用] ConfigArg.pluginMsg.on(...) 参数: (2) [Proxy(Function), ƒ]
+VM285:24 [参数探测] 读取属性: ConfigArg.on
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT.PLAY_SESSION_END
+VM285:33 [方法调用] ConfigArg.on(...) 参数: (2) [Proxy(Function), ƒ]
+VM285:24 [参数探测] 读取属性: ConfigArg.on
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT.VIDEO_PLAYING
+VM285:33 [方法调用] ConfigArg.on(...) 参数: (2) [Proxy(Function), ƒ]
+VM285:24 [参数探测] 读取属性: ConfigArg.on
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT.VIDEO_PAUSE
+VM285:33 [方法调用] ConfigArg.on(...) 参数: (2) [Proxy(Function), ƒ]
+VM285:24 [参数探测] 读取属性: ConfigArg.on
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT
+VM285:24 [参数探测] 读取属性: RS.H5_PLAY_EVENT.VIDEO_SETLEVEL_START
+VM285:33 [方法调用] ConfigArg.on(...) 参数: (2) [Proxy(Function), ƒ]
+VM285:24 [参数探测] 读取属性: ConfigArg.pluginMsg
+VM285:24 [参数探测] 读取属性: ConfigArg.pluginMsg.on
+VM285:24 [参数探测] 读取属性: RS.H5_EXT_EVENT
+VM285:24 [参数探测] 读取属性: RS.H5_EXT_EVENT.GETINFO_OVER
+VM285:33 [方法调用] ConfigArg.pluginMsg.on(...) 参数: (2) [Proxy(Function), ƒ]
+VM285:24 [参数探测] 读取属性: ConfigArg.config
+VM285:24 [参数探测] 读取属性: ConfigArg.config.constructor
+VM285:123 调用 default 方法时依然报错: TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.g (<anonymous>:90:73435)
+    at <anonymous>:117:54
+（匿名） @ VM285:123
+setTimeout
+（匿名） @ VM285:100
+（匿名） @ VM285:132
+VM285:124 请检查上方日志，看 '参数探测' 里它还缺什么属性。
+VM285:33 [方法调用] YS.encodingTool.base64.toUint8Array.then(...) 参数: (2) [ƒ, ƒ]
+VM285:33 [方法调用] YS.encodingTool.base64.toUint8Array.then(...) 参数: (2) [ƒ, ƒ]

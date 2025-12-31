@@ -1,16 +1,22 @@
 {
+  "name": "widevine-decryptor",
+  "version": "1.0.0",
+  "description": "腾讯视频播放器Widevine解密方法的Node.js实现",
+  "main": "widevine_decryptor.js",
+  "scripts": {
+    "test": "node widevine_test.js",
+    "start": "node server_example.js"
+  },
   "dependencies": {
-    "@babel/core": "^7.28.5",
-    "@babel/generator": "^7.28.5",
-    "@babel/parser": "^7.28.5",
-    "@babel/traverse": "^7.28.5",
-    "@babel/types": "^7.28.5",
-    "body-parser": "^2.2.1",
-    "canvas": "^3.2.0",
-    "express": "^5.2.1",
-    "jsdom": "^27.3.0",
-    "puppeteer": "^24.34.0",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
-  }
+    "jsdom": "^22.1.0"
+  },
+  "keywords": [
+    "widevine",
+    "decryptor",
+    "video",
+    "tencent",
+    "superplayer"
+  ],
+  "author": "Developer",
+  "license": "MIT"
 }
