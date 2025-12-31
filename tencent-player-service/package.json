@@ -1,0 +1,31 @@
+{
+  "name": "tencent-player-service",
+  "version": "1.0.0",
+  "description": "Tencent Video TEE/CKey Decryption Service based on Puppeteer",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tencent",
+    "video",
+    "decrypt",
+    "puppeteer",
+    "tee"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "fs-extra": "^11.2.0",
+    "puppeteer": "^22.0.0",
+    "puppeteer-extra":"^3.3.6",
+    "puppeteer-extra-plugin-stealth":"^2.11.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
