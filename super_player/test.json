@@ -1,0 +1,139 @@
+{
+    "0": false,
+    "1": "GETINFO_OVER",
+    "2": {
+        "businessData": {
+            "h38": "f749410bb10766155a91f21b0300000f719b0e",
+            "q36": ""
+        },
+        "startTime": 1768207862859,
+        "endTime": 1768207863983,
+        "alreadyRetryCount": 0,
+        "config": {
+            "path": "",
+            "retryCount": 3,
+            "test": 0,
+            "timeout": 6000,
+            "ckeyVer": "",
+            "keepAdReqWithCustomPath": false,
+            "enableTxEnc": false,
+            "preMiddlewares": [],
+            "postMiddlewares": []
+        },
+        "reqParams": {
+            "charge": 0,
+            "otype": "json",
+            "defnpayver": 3,
+            "spau": 1,
+            "spaudio": 0,
+            "spwm": 1,
+            "sphls": 6,
+            "host": "v.qq.com",
+            "refer": "https://v.qq.com/x/cover/vqeduf4egjyrc8w/t001392icot.html",
+            "ehost": "https://v.qq.com/x/cover/vqeduf4egjyrc8w/t001392icot.html",
+            "sphttps": 1,
+            "encryptVer": "9.2",
+            "cKey": "4QK4VUUgkMq1F81Orq2-LnCjnpb8Ocr0cPTQoHgkzEul_f4uOWcuWmJMR8Gs77I8PloB3xdQ0moPCp7VHCeQghpmp7rG5tiHjLv_PnnatnPaZeiclI-E8dvdn_Qi5YfNnl31_IML4shkFjOj-NmZhE-NjjawCzIHH6ORd8JBnDgsk_VKYDnwTGrhuLoxaemxuyx9-KN7KuuWUYWksGXkUJYnQqXKgvocvCDoQBrA1BuIgjfLp43cmgP-uzm3mFnH18KXTuCOvYcxvHSXkOY9v_stgHmjSV3wx4D-7khhCIYycsXZ0MHa57Kox_m9o4tDeoJ_m7Y2uMG7bLCpiYsjiahOr9mzZbQQb_CxKrVD2If5qxMWcy4bwekYFGR-zCAAWLUxceAaeuVuzth2tOt-lsujaITNscu7sAHJ1oJ3gYpbjpSdO1HHgfKg4n-9tvBEJevu9n3McM8wf0pl-m_akFBQsafdtAZ-htDXpPOfT4c-amg13mHZAV0CBII",
+            "clip": 4,
+            "guid": "3c4e1a2d05e04405",
+            "flowid": "3e1ae538d9e20d02ea6e1dec7ed70186",
+            "platform": "10201",
+            "sdtfrom": "v1010",
+            "appVer": "1.58.2",
+            "unid": "",
+            "auth_from": "",
+            "auth_ext": "",
+            "vid": "t001392icot",
+            "defn": "",
+            "fhdswitch": 0,
+            "dtype": 3,
+            "spsrt": 3,
+            "tm": "1768207862",
+            "lang_code": 0,
+            "logintoken": "{\"access_token\":\"\",\"appid\":\"\",\"vusession\":\".O\",\"openid\":\"\",\"vuserid\":\"61307442\",\"video_guid\":\"3c4e1a2d05e04405\",\"main_login\":\"wx\"}",
+            "qimei": "",
+            "spvvpay": 1,
+            "spadseg": 3,
+            "spav1": 15,
+            "sphevcfps": 319,
+            "spvideo": 0,
+            "spm3u8tag": 67,
+            "spmasterm3u8": 3,
+            "spcaptiontrack": 1,
+            "spcaptiontype": 1,
+            "appctrl": 16384,
+            "atime": 0,
+            "playctrl": 418,
+            "drm": 32,
+            "multidrm": 0
+        },
+        "reqPath": "https://h5vv6.video.qq.com/getvinfo",
+        "resData": {},
+        "requestor": {
+            "jsonpPrefix": "getinfo_callback_"
+        },
+        "parseData": {},
+        "extraPlayConfig": {
+            "setLevelMode": "hard"
+        },
+        "seq": 2,
+        "urlConfig": {
+            "url": "https://playproxy.video.qq.com/masterM3U8/o0047h6dqib.320277.326002.m3u8?user=&pwd=",
+            "backupUrls": [],
+            "p2pConfig": {
+                "playerInfo": {
+                    "platform": "10201",
+                    "osVer": "mac 10.15.7",
+                    "broVer": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML\\, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+                    "playerVer": "1.58.1",
+                    "guid": "3c4e1a2d05e04405",
+                    "sceneID": "100101",
+                    "qq": "",
+                    "wx": "61307442",
+                    "vip": false
+                },
+                "keyId": "hls.0b53iuaaaaaagiaopix2m5smarodabeqabca.f320277",
+                "useP2P": true,
+                "flowId": "3e1ae538d9e20d02ea6e1dec7ed70186",
+                "downloadMode": 0,
+                "encoding": 1,
+                "vid": "t001392icot",
+                "format": 320277
+            },
+            "drmConfig": {
+                "enableChromeM113Workaround": true,
+                "licenseUrl": "https://fairplay.l.qq.com/vod/widevine/v1/getlicense?key=01v5m3ic4r0X918F1uhPPiErdwQNFNuL3X2Iy3R7QDkzcgHlc4HZPvMZ45_7kzP-RcIwscGwb9PsSSQvEaWQOE8KhCTY7E6uEreBVjHG_bmeiAfl1bhzHdC97ZZNui7aAu2ccCZ9uQo1lLWywWtguTfA3MRMKmnS-AL4P5hs0bJkEO9rSCjdYEPyZ3hl9TXTTNYB9_mtqTgv51_01jh8fNm1tSr49F_6ClYDns1ldplWOsUngHjEoPp_oaoJWPJdGdKl_feBrARmwuUwCziFAHxaEb1xAn5IMFzRGp&vid=t001392icot&fmt=320277&afmt=326002&ip=180.109.97.189&platform=10201&guid=3c4e1a2d05e04405&flow_id=3e1ae538d9e20d02ea6e1dec7ed70186&link_vid=o0047h6dqib&version=1",
+                "certificate": {},
+                "keySystem": "com.widevine.alpha"
+            },
+            "chachaParam": null,
+            "drmType": 5,
+            "kernelName": "hls.js",
+            "audioTrack": null,
+            "vcodec": 0,
+            "videoFrameRate": 25,
+            "videoCodec": "h264",
+            "setLevelMode": "hard",
+            "expireTimeStamp": 1768215064066
+        },
+        "logger": {
+            "instanceId": "e4c0fa6fbdef93238ef4e183eb691435",
+            "playerIdForPrint": "eb691435",
+            "scopeName": "ReqVod",
+            "logModeConfig": {
+                "trace": 1,
+                "debug": 1,
+                "info": 3,
+                "log": 3,
+                "warn": 3,
+                "error": 3
+            },
+            "tempPayloadContent": null
+        },
+        "playerInstanceId": "e4c0fa6fbdef93238ef4e183eb691435",
+        "cKeyCostTime": 515.1999999880791,
+        "emitEvtOpaque": true,
+        "parseCostTime": 1.0999999940395355,
+        "kernelName": "hls.js"
+    }
+}

@@ -270,7 +270,7 @@ var SuperPlayerExport = function (e) {
       return true;
     }
     try {
-      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () { }));
       return true;
     } catch (e) {
       return false;
@@ -590,7 +590,7 @@ var SuperPlayerExport = function (e) {
         try {
           e[j] = undefined;
           var i = true;
-        } catch (e) {}
+        } catch (e) { }
         var n = H.call(e);
         if (i) {
           if (t) {
@@ -630,10 +630,10 @@ var SuperPlayerExport = function (e) {
     if (e != null) {
       try {
         return ae.call(e);
-      } catch (e) {}
+      } catch (e) { }
       try {
         return e + "";
-      } catch (e) {}
+      } catch (e) { }
     }
     return "";
   }
@@ -796,7 +796,7 @@ var SuperPlayerExport = function (e) {
       var e = he(Object, "defineProperty");
       e({}, "", {});
       return e;
-    } catch (e) {}
+    } catch (e) { }
   }();
   var Te = we;
   function Se(e, t, o) {
@@ -882,7 +882,7 @@ var SuperPlayerExport = function (e) {
     try {
       var e = Xe && Xe.require && Xe.require("util").types;
       return e || Ze && Ze.binding && Ze.binding("util");
-    } catch (e) {}
+    } catch (e) { }
   }();
   var et = $e && $e.isTypedArray;
   var tt = et ? Je(et) : function (e) {
@@ -1162,7 +1162,7 @@ var SuperPlayerExport = function (e) {
   }
   var Io = Object.create;
   var yo = function () {
-    function e() {}
+    function e() { }
     return function (t) {
       if (!Z(t)) {
         return {};
@@ -1508,7 +1508,7 @@ var SuperPlayerExport = function (e) {
     }).apply(this, arguments);
   }
   var gi = function () {
-    function e() {}
+    function e() { }
     e.setDefault = function (t) {
       e.defaultOptions = li(li({}, e.defaultOptions), t);
     };
@@ -1602,7 +1602,7 @@ var SuperPlayerExport = function (e) {
         } else {
           return o;
         }
-      } catch (t) {}
+      } catch (t) { }
     };
     e.raw = false;
     e.json = false;
@@ -3563,7 +3563,7 @@ var SuperPlayerExport = function (e) {
               }
             })];
           }
-        } catch (e) {}
+        } catch (e) { }
         return [2, o[t || e]];
       });
     })).apply(this, arguments);
@@ -3815,7 +3815,7 @@ var SuperPlayerExport = function (e) {
             }
             o.label = 1;
           case 1:
-            o.trys.push([1, 3,, 4]);
+            o.trys.push([1, 3, , 4]);
             return [4, vi({
               src: e
             })];
@@ -3831,7 +3831,7 @@ var SuperPlayerExport = function (e) {
       });
     });
   }
-  function IA() {}
+  function IA() { }
   var yA = 1;
   function CA(e) {
     return EA(this, undefined, undefined, function () {
@@ -4038,7 +4038,7 @@ var SuperPlayerExport = function (e) {
     var t = e.retryCount || 0; // 重试次数，默认为0
     var o = +new Date(); // 请求开始时间戳
     var i = 0; // 当前重试计数
-    
+
     // 内部请求处理函数
     // A: Promise的resolve函数，用于返回成功结果
     // r: Promise的reject函数，用于返回错误信息
@@ -4057,40 +4057,40 @@ var SuperPlayerExport = function (e) {
           });
         }
       }
-      
+
       // 创建XMLHttpRequest对象
       var s = new XMLHttpRequest();
       // 打开请求，默认使用GET方法
       s.open(e.method || "get", e.url);
-      
+
       // 设置请求超时时间
       if (e.timeout) {
         s.timeout = e.timeout;
       }
-      
+
       // 设置响应类型
       if (e.responseType) {
         s.responseType = e.responseType;
       }
-      
+
       // 设置是否携带凭证（cookie等）
       s.withCredentials = !!e.withCredentials;
-      
+
       // 设置自定义超时处理函数
       s.ontimeout = e.ontimeout;
-      
+
       // 如果有范围请求参数，设置Range请求头
       if (e.range) {
         s.setRequestHeader("Range", `bytes=${e.range[0]}-${e.range[1]}`);
       }
-      
+
       // 设置自定义请求头
       if (e.headers) {
         Object.keys(e.headers).forEach(function (t) {
           s.setRequestHeader(t, e.headers[t]);
         });
       }
-      
+
       // 请求加载完成的处理函数
       s.onload = function () {
         // 检查HTTP状态码，200表示成功，206表示部分内容（范围请求成功）
@@ -4112,7 +4112,7 @@ var SuperPlayerExport = function (e) {
       s.onerror = function () {
         a();
       };
-      s.onabort = function () {};
+      s.onabort = function () { };
       s.ontimeout = function () {
         a("xhrTimeoutError");
       };
@@ -4812,7 +4812,7 @@ var SuperPlayerExport = function (e) {
             s = a === undefined ? 30 : a;
             E.label = 1;
           case 1:
-            E.trys.push([1, 3,, 4]);
+            E.trys.push([1, 3, , 4]);
             l = {
               type: "media-source"
             };
@@ -4904,7 +4904,7 @@ var SuperPlayerExport = function (e) {
             }
             n.label = 1;
           case 1:
-            n.trys.push([1, 5,, 6]);
+            n.trys.push([1, 5, , 6]);
             if (er[e] === undefined) {
               return [3, 3];
             } else {
@@ -5066,7 +5066,7 @@ var SuperPlayerExport = function (e) {
       try {
         new window.ReadableStream({});
         return true;
-      } catch (e) {}
+      } catch (e) { }
     }
     return false;
   }
@@ -5782,7 +5782,7 @@ var SuperPlayerExport = function (e) {
       var a;
       // s：日志转换器类（处理日志的转换和格式化）
       var s = function () {
-        function e() {}
+        function e() { }
         Object.defineProperty(e, "startLogTimeMs", {
           get: function () {
             return this.firstLogTimestampMs;
@@ -5829,7 +5829,7 @@ var SuperPlayerExport = function (e) {
         e.firstLogTimestampMs = -1;
         return e;
       }();
-      function l() {}
+      function l() { }
       // g：默认日志函数映射（初始为空函数）
       var g = {
         trace: l,
@@ -6542,7 +6542,7 @@ var SuperPlayerExport = function (e) {
             return Y(this, function (A) {
               switch (A.label) {
                 case 0:
-                  A.trys.push([0, 2,, 3]);
+                  A.trys.push([0, 2, , 3]);
                   if ((t = e.getLogCache(this.instanceId) || []) == null ? undefined : t.length) {
                     this.updateBaseLogs(t);
                     o = F(F({
@@ -6577,7 +6577,7 @@ var SuperPlayerExport = function (e) {
             return Y(this, function (n) {
               switch (n.label) {
                 case 0:
-                  n.trys.push([0, 2,, 3]);
+                  n.trys.push([0, 2, , 3]);
                   return [4, (i = this.storage) === null || i === undefined ? undefined : i.getLogs(this.projectId, {
                     isFile: true
                   })];
@@ -6605,7 +6605,7 @@ var SuperPlayerExport = function (e) {
             return Y(this, function (i) {
               switch (i.label) {
                 case 0:
-                  i.trys.push([0, 2,, 3]);
+                  i.trys.push([0, 2, , 3]);
                   return [4, this.storeLogs()];
                 case 1:
                   i.sent();
@@ -6627,7 +6627,7 @@ var SuperPlayerExport = function (e) {
             return Y(this, function (n) {
               switch (n.label) {
                 case 0:
-                  n.trys.push([0, 2,, 3]);
+                  n.trys.push([0, 2, , 3]);
                   if (Array.isArray(e) && t) {
                     return [4, (i = this.storage) === null || i === undefined ? undefined : i.saveLogIndex(e, t)];
                   } else {
@@ -7021,7 +7021,7 @@ var SuperPlayerExport = function (e) {
         }
         return new A(e.subarray(t, o));
       }
-      var S = ["unexpected EOF", "invalid block type", "invalid length/literal", "invalid distance", "stream finished", "no stream handler",, "no callback", "invalid UTF-8 data", "extra field too long", "date not in range 1980-2099", "filename too long", "stream finishing", "invalid zip data"];
+      var S = ["unexpected EOF", "invalid block type", "invalid length/literal", "invalid distance", "stream finished", "no stream handler", , "no callback", "invalid UTF-8 data", "extra field too long", "date not in range 1980-2099", "filename too long", "stream finishing", "invalid zip data"];
       function _(e, t, o) {
         var i = new Error(t || S[e]);
         i.code = e;
@@ -7592,7 +7592,7 @@ var SuperPlayerExport = function (e) {
         te.decode(N, {
           stream: true
         });
-      } catch (e) {}
+      } catch (e) { }
       var oe = o(123);
       var ie = o.n(oe);
       function ne(e) {
@@ -8123,7 +8123,7 @@ var SuperPlayerExport = function (e) {
                   }, n);
                   t.label = 1;
                 case 1:
-                  t.trys.push([1, 3,, 4]);
+                  t.trys.push([1, 3, , 4]);
                   return [4, fetch(l, {
                     method: "put",
                     body: e.file,
@@ -8524,7 +8524,7 @@ var SuperPlayerExport = function (e) {
               return r(e.oldVersion, e.newVersion, e);
             });
           }
-        }).catch(function () {});
+        }).catch(function () { });
         return l;
       }
       var Fe = ["get", "getKey", "getAll", "getAllKeys", "count"];
@@ -8975,7 +8975,7 @@ var SuperPlayerExport = function (e) {
                               }
                               p.label = 3;
                             case 3:
-                              p.trys.push([3, 8,, 9]);
+                              p.trys.push([3, 8, , 9]);
                               E = 0;
                               d = c;
                               p.label = 4;
@@ -9353,7 +9353,7 @@ var SuperPlayerExport = function (e) {
                   }
                   v.label = 3;
                 case 3:
-                  v.trys.push([3, 5,, 6]);
+                  v.trys.push([3, 5, , 6]);
                   return [4, Promise.all(l.map(function (e) {
                     return o.delete(IDBKeyRange.bound([e, je.CHUNK_START_ID], [e, Number.MAX_SAFE_INTEGER]));
                   }))];
@@ -9715,7 +9715,7 @@ var SuperPlayerExport = function (e) {
                           e = {};
                           o.label = 1;
                         case 1:
-                          o.trys.push([1, 3,, 4]);
+                          o.trys.push([1, 3, , 4]);
                           return [4, Promise.all(Object.entries(v).map(function (t) {
                             return le(undefined, [t], undefined, function (t) {
                               var o;
@@ -10044,7 +10044,7 @@ var SuperPlayerExport = function (e) {
                     n = e.args; // 方法参数
                     l.label = 1;
                   case 1:
-                    l.trys.push([1, 5,, 6]);
+                    l.trys.push([1, 5, , 6]);
                     if (!this[i]) { // 检查方法是否存在
                       throw new Error(`Method ${i} not found`);
                     }
@@ -10208,12 +10208,12 @@ var SuperPlayerExport = function (e) {
           main: Object.keys(n.main)
         } : function (e, t) {
           for (var o = {
-              main: [t]
-            }, i = {
-              main: []
-            }, n = {
-              main: {}
-            }; s(o);) {
+            main: [t]
+          }, i = {
+            main: []
+          }, n = {
+            main: {}
+          }; s(o);) {
             for (var A = Object.keys(o), r = 0; r < A.length; r++) {
               var l = A[r];
               var g = o[l].pop();
@@ -10669,7 +10669,7 @@ var SuperPlayerExport = function (e) {
     setData: aA,
     delData: sA
   };
-  function Ha() {}
+  function Ha() { }
   var ja = {
     getBuffered: Ar,
     checkTimeInBuffer: rr,
@@ -10731,10 +10731,10 @@ var SuperPlayerExport = function (e) {
     insertStyle: pi,
     loadScript: Kn,
     attr: fi,
-    removeAttr: function () {},
+    removeAttr: function () { },
     css: mi,
     append: xn,
-    prepend: function () {},
+    prepend: function () { },
     addClass: yi,
     removeClass: Ci,
     hasClass: Ii,
@@ -10804,7 +10804,7 @@ var SuperPlayerExport = function (e) {
     isPageHidden: en,
     setTimeoutByRAF: tn,
     assignApiToPrototype: on,
-    base64ToArrayBuffer: function () {},
+    base64ToArrayBuffer: function () { },
     deepmerge: xi,
     deepmergeAll: Vi
   };
@@ -11032,7 +11032,7 @@ var SuperPlayerExport = function (e) {
         // 视频加密事件处理函数，Widevine解密流程的入口点
         // e: 加密事件对象，包含initData（初始化数据）和initDataType（初始化数据类型）
         s.logger.log("media encrypted", e);
-        
+
         // 检查是否已请求媒体密钥系统
         if (s.mediaKeyPromise) {
           // 等待媒体密钥系统准备就绪
@@ -11117,7 +11117,7 @@ var SuperPlayerExport = function (e) {
           });
         }
       });
-      a(t(s), "onFPSKeySessionKeyAdded", function (e) {});
+      a(t(s), "onFPSKeySessionKeyAdded", function (e) { });
       a(t(s), "onFPSKeySessionKeyError", function (e) {
         var t = s.mediaKeyDescriptor.mediaKeySession.error;
         if (t.systemCode) {
@@ -11242,7 +11242,7 @@ var SuperPlayerExport = function (e) {
                 e.mediaKeyDescriptor = null;
                 n.label = 1;
               case 1:
-                n.trys.push([1, 3,, 4]);
+                n.trys.push([1, 3, , 4]);
                 return [4, o[e.config.keySystem].call(e, i)];
               case 2:
               case 3:
@@ -11274,7 +11274,7 @@ var SuperPlayerExport = function (e) {
         if (this.media && e) {
           e.onmessage = null;
           e.onkeystatuseschange = null;
-          e.close().catch(function () {});
+          e.close().catch(function () { });
           return this.media.setMediaKeys(null);
         } else {
           return Promise.resolve();
@@ -11319,15 +11319,15 @@ var SuperPlayerExport = function (e) {
           // 构建一个映射表，将DRM系统名称映射到对应的许可证请求创建函数
           // Widevine对应的是createWidevineLicenseRequest函数
           // 其他DRM系统（如PlayReady、FairPlay）有各自的处理函数
-          return (a(o = {}, WA.FairPlayWebKit, this.createFPSLicenseRequest), 
-                  a(o, WA.Widevine, this.createWidevineLicenseRequest), 
-                  a(o, WA.PlayReady, this.createPlayReadyLicenseRequest), 
-                  a(o, WA.FairPlay, this.createFPSLicenseRequest), 
-                  a(o, WA.PlayReadyHardware, this.createPlayReadyLicenseRequest), 
-                  a(o, WA.WisePlay, this.createWidevineLicenseRequest), 
-                  // 根据当前配置的keySystem选择对应的许可证请求创建函数
-                  // 对于Widevine，将调用createWidevineLicenseRequest
-                  o)[this.config.keySystem].call(this, e, t);
+          return (a(o = {}, WA.FairPlayWebKit, this.createFPSLicenseRequest),
+            a(o, WA.Widevine, this.createWidevineLicenseRequest),
+            a(o, WA.PlayReady, this.createPlayReadyLicenseRequest),
+            a(o, WA.FairPlay, this.createFPSLicenseRequest),
+            a(o, WA.PlayReadyHardware, this.createPlayReadyLicenseRequest),
+            a(o, WA.WisePlay, this.createWidevineLicenseRequest),
+            // 根据当前配置的keySystem选择对应的许可证请求创建函数
+            // 对于Widevine，将调用createWidevineLicenseRequest
+            o)[this.config.keySystem].call(this, e, t);
         }
         // 如果没有配置许可证服务器URL，触发错误事件
         this.emit(ys, {
@@ -11378,7 +11378,7 @@ var SuperPlayerExport = function (e) {
                 }
                 A.label = 1;
               case 1:
-                A.trys.push([1, 3,, 4]);
+                A.trys.push([1, 3, , 4]);
                 return [4, self.navigator.requestMediaKeySystemAccess(e, [o])];
               case 2:
                 i = A.sent();
@@ -11428,7 +11428,7 @@ var SuperPlayerExport = function (e) {
                 };
                 n.label = 2;
               case 2:
-                n.trys.push([2, 5,, 6]);
+                n.trys.push([2, 5, , 6]);
                 // 处理FairPlay的特殊情况，设置服务器证书
                 if (e !== WA.FairPlay) {
                   return [3, 4];
@@ -11528,7 +11528,7 @@ var SuperPlayerExport = function (e) {
         // e: 媒体密钥会话对象（用于后续更新许可证）
         // t: 包含许可证请求消息的事件对象（由browser的DRM模块生成）
         this.logger.log("received media key session message", t);
-        
+
         // Chrome 113版本CDN问题的兼容性处理
         // 针对Chrome 113版本的特定DRM模块(CDM)版本的兼容性修复
         if (this.config.enableChromeM113Workaround && is.browser.chrome && os.compareVersion(is.browser.version, "113") === 0) {
@@ -11542,12 +11542,12 @@ var SuperPlayerExport = function (e) {
               });
               return;
             }
-          } catch (e) {}
+          } catch (e) { }
         }
-        
+
         var o;
         var n = this;
-        
+
         // 调用requestLicense函数获取许可证
         // 这是许可证请求流程的核心调用，会根据配置的DRM系统路由到对应的处理函数
         this.requestLicense(t, (o = i(function (t) {
@@ -11558,7 +11558,7 @@ var SuperPlayerExport = function (e) {
           var A;  // 错误变量
           var a;  // update操作的Promise
           var s;  // 许可证请求失败的错误信息
-          
+
           // 使用F函数实现的异步流程控制（类似async/await）
           return F(this, function (l) {
             // Widevine视频流解密逻辑的核心流程
@@ -11573,7 +11573,7 @@ var SuperPlayerExport = function (e) {
                 l.label = 1;
               case 1:
                 // 设置错误捕获点，捕获整个许可证处理流程中的异常
-                l.trys.push([1, 6,, 7]);
+                l.trys.push([1, 6, , 7]);
                 // 获取许可证数据
                 // t.data包含了从Widevine许可证服务器返回的二进制许可证数据
                 // 这些数据包含了用于解密视频流的密钥信息
@@ -11588,7 +11588,7 @@ var SuperPlayerExport = function (e) {
                 l.label = 2;
               case 2:
                 // 设置错误捕获点，捕获自定义许可证处理过程中的异常
-                l.trys.push([2, 4,, 5]);
+                l.trys.push([2, 4, , 5]);
                 // 记录许可证响应处理开始时间
                 // 用于性能监控和统计
                 n.timeStart(Ga.LIC_RES_SET);
@@ -11804,7 +11804,7 @@ var SuperPlayerExport = function (e) {
               case 1:
                 // 处理许可证请求设置
                 // 如果配置了自定义请求设置函数，调用它对请求进行处理
-                g.trys.push([1, 3,, 4]);
+                g.trys.push([1, 3, , 4]);
                 o.timeStart(Ga.LIC_REQ_SET);
                 // 调用自定义的许可证请求设置函数
                 // 可以在这里添加认证信息、修改请求格式等
@@ -11828,7 +11828,7 @@ var SuperPlayerExport = function (e) {
               case 4:
                 // 发送许可证请求
                 // 向许可证服务器发送HTTP请求
-                g.trys.push([4, 6,, 7]);
+                g.trys.push([4, 6, , 7]);
                 o.timeStart(Ga.LIC_REQ);
                 // 使用xhr发送HTTP请求到许可证服务器
                 // Wa.xhr是一个封装的XMLHttpRequest对象，用于发送异步HTTP请求
@@ -12656,8 +12656,8 @@ var SuperPlayerExport = function (e) {
       n(this, e);
       a(this, "media", undefined);
       a(this, "playerConfig", undefined);
-      a(this, "onLatencyExceeded", function () {});
-      a(this, "onLatencyDropped", function () {});
+      a(this, "onLatencyExceeded", function () { });
+      a(this, "onLatencyDropped", function () { });
       a(this, "latencyCalculationMethod", js);
       a(this, "state", undefined);
       a(this, "setupEvents", function () {
@@ -13442,10 +13442,10 @@ var SuperPlayerExport = function (e) {
       }
     }, {
       key: "onLatencyExceeded",
-      value: function (e, t, o) {}
+      value: function (e, t, o) { }
     }, {
       key: "onLatencyDropped",
-      value: function (e, t, o) {}
+      value: function (e, t, o) { }
     }, {
       key: "setHealthEvents",
       value: function () {
@@ -13528,7 +13528,7 @@ var SuperPlayerExport = function (e) {
                 }
                 t.label = 1;
               case 1:
-                t.trys.push([1, 3,, 4]);
+                t.trys.push([1, 3, , 4]);
                 return [4, e.playPromise];
               case 2:
                 t.sent();
@@ -13587,7 +13587,7 @@ var SuperPlayerExport = function (e) {
       }
     }, {
       key: "onVideoEventLoadStart",
-      value: function () {}
+      value: function () { }
     }, {
       key: "onVideoEventWaiting",
       value: function () {
@@ -14365,7 +14365,7 @@ var SuperPlayerExport = function (e) {
             };
             u.label = 1;
           case 1:
-            u.trys.push([1, 3,, 4]);
+            u.trys.push([1, 3, , 4]);
             return [4, Wa.xhr({
               url: e,
               retryCount: 0,
@@ -14383,7 +14383,7 @@ var SuperPlayerExport = function (e) {
             t.downloadSpeed = `${Math.floor(r / a)}kb/s`;
             try {
               t.headers = n.getAllResponseHeaders();
-            } catch (e) {}
+            } catch (e) { }
             return [3, 4];
           case 3:
             s = u.sent();
@@ -14878,7 +14878,7 @@ var SuperPlayerExport = function (e) {
                 }
                 t.label = 1;
               case 1:
-                t.trys.push([1, 3,, 4]);
+                t.trys.push([1, 3, , 4]);
                 return [4, window.navigator.wakeLock.request("screen")];
               case 2:
                 e.wakeLock = t.sent();
@@ -15164,7 +15164,7 @@ var SuperPlayerExport = function (e) {
                   return [2];
                 }
               case 1:
-                i.trys.push([1, 3,, 4]);
+                i.trys.push([1, 3, , 4]);
                 return [4, n.triggerAutoplay()];
               case 2:
                 i.sent();
@@ -16780,19 +16780,19 @@ var SuperPlayerExport = function (e) {
     var e = "npm";
     try {
       e = "npm";
-    } catch (e) {}
+    } catch (e) { }
     var t = "";
     try {
       t = "1.57.5";
-    } catch (e) {}
+    } catch (e) { }
     var o = "";
     try {
       o = 1765800010207;
-    } catch (e) {}
+    } catch (e) { }
     var i = false;
     try {
       i = false;
-    } catch (e) {}
+    } catch (e) { }
     return {
       CHANNEL: e,
       VERSION: t,
@@ -16835,10 +16835,10 @@ var SuperPlayerExport = function (e) {
       }
     }, {
       key: "appendAfter",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "checkAccuratePlaytime",
-      value: function (e, t) {}
+      value: function (e, t) { }
     }, {
       key: "preparePreloader",
       value: function (e, t) {
@@ -16961,61 +16961,61 @@ var SuperPlayerExport = function (e) {
         var o = t.instanceId;
         var i = t.videoElementConfig;
         for (var n = t.maxVideoNodeCount, A = function (e) {
-            var t = {
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-              objectFit: "contain"
-            };
-            var o = Object.keys(t);
-            var i = {
-              playsinline: {
-                playsinline: "isiPhoneShowPlaysinline",
-                "webkit-playsinline": "isiPhoneShowPlaysinline"
-              },
-              airplay: {
-                airplay: "allow",
-                "x-webkit-airplay": "allow"
-              },
-              crossorigin: {
-                crossOrigin: "anonymous"
-              },
-              "h5-page": {
-                "x5-video-player-type": "h5-page"
-              }
-            };
-            var n = {
-              playsinline: true,
-              "h5-page": true
-            };
-            Object.keys(e).forEach(function (t) {
-              if (o.indexOf(t) === -1) {
-                n[t] = e[t];
-              }
-            });
-            var A = Object.keys(n).reduce(function (e, t) {
-              if (i[t] && typeof n[t] == "boolean") {
-                e = u({}, e, n[t] ? i[t] : {});
-              } else {
-                e[t] = n[t];
-              }
-              return e;
-            }, {});
-            var r = o.reduce(function (o, i) {
-              o[i] = e[i] ?? t[i];
-              return o;
-            }, {});
-            return {
-              attrOpts: A,
-              cssOpts: r
-            };
-          }(E(u({
-            preload: t.preloadType === e.PRELOAD_TYPE.META_DATA ? "metadata" : "auto"
-          }, i), {
-            playerid: o
-          })), r = [], a = 0; a < n; a++) {
+          var t = {
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            top: 0,
+            left: 0,
+            objectFit: "contain"
+          };
+          var o = Object.keys(t);
+          var i = {
+            playsinline: {
+              playsinline: "isiPhoneShowPlaysinline",
+              "webkit-playsinline": "isiPhoneShowPlaysinline"
+            },
+            airplay: {
+              airplay: "allow",
+              "x-webkit-airplay": "allow"
+            },
+            crossorigin: {
+              crossOrigin: "anonymous"
+            },
+            "h5-page": {
+              "x5-video-player-type": "h5-page"
+            }
+          };
+          var n = {
+            playsinline: true,
+            "h5-page": true
+          };
+          Object.keys(e).forEach(function (t) {
+            if (o.indexOf(t) === -1) {
+              n[t] = e[t];
+            }
+          });
+          var A = Object.keys(n).reduce(function (e, t) {
+            if (i[t] && typeof n[t] == "boolean") {
+              e = u({}, e, n[t] ? i[t] : {});
+            } else {
+              e[t] = n[t];
+            }
+            return e;
+          }, {});
+          var r = o.reduce(function (o, i) {
+            o[i] = e[i] ?? t[i];
+            return o;
+          }, {});
+          return {
+            attrOpts: A,
+            cssOpts: r
+          };
+        }(E(u({
+          preload: t.preloadType === e.PRELOAD_TYPE.META_DATA ? "metadata" : "auto"
+        }, i), {
+          playerid: o
+        })), r = [], a = 0; a < n; a++) {
           var s = Ja.createVideoDom(A);
           r.push(s);
         }
@@ -17702,12 +17702,12 @@ var SuperPlayerExport = function (e) {
                 }
                 u.label = 4;
               case 4:
-                u.trys.push([4, 6,, 7]);
+                u.trys.push([4, 6, , 7]);
                 return [4, Ja.loadScript(g, null, 10000, s)];
               case 5:
                 u.sent();
                 if (n.isDestroyed) {
-                  return [2, new Promise(function () {})];
+                  return [2, new Promise(function () { })];
                 } else {
                   n.logger.log(`auto download kernel [${i}] succ=true`);
                   r = true;
@@ -18571,7 +18571,7 @@ var SuperPlayerExport = function (e) {
     }
     var o; // 临时变量：属性名/符号
     var i; // 临时变量：循环索引
-    
+
     // 处理普通属性
     var n = function (e, t) {
       // 源对象为空时返回空对象
@@ -18593,7 +18593,7 @@ var SuperPlayerExport = function (e) {
       }
       return n;
     }(e, t);
-    
+
     // 处理符号属性（兼容性处理）
     if (Object.getOwnPropertySymbols) {
       // 获取源对象的所有符号属性
@@ -18609,7 +18609,7 @@ var SuperPlayerExport = function (e) {
         }
       }
     }
-    
+
     return n;
   }
   Ka.superPlayer = {
@@ -19307,109 +19307,109 @@ var SuperPlayerExport = function (e) {
       }
     }, {
       key: "hookPlaySessionStart",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdReqInfoStart",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdReqInfoEnd",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdReqAssetsStart",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdAutoplayBlocked",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdPlaying",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdVolumeChange",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdAssetsLoaded",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdPause",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdResume",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdEnd",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdTimeUpdate",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdShow",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookAdHide",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoReqInfoStart",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoReqInfoEnd",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoLoadStart",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoMetadataChange",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoLoadProgress",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoDurationChange",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoTimeupdate",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoVolumeChange",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoResize",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoRateChange",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoCanplay",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoPlaying",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoAutoplayBlocked",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoPause",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoBuffering",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoSeeking",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoSeeked",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoSetlevelStart",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoSetlevelEnd",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookVideoEnd",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "hookPlaySessionEnd",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "registerHook",
       value: function () {
@@ -19998,7 +19998,7 @@ var SuperPlayerExport = function (e) {
           code: e.ErrorCode.SUC
         });
       };
-      l.onIdle = function () {};
+      l.onIdle = function () { };
       l.onSeeking = function (t) {
         var o;
         var i;
@@ -20552,7 +20552,7 @@ var SuperPlayerExport = function (e) {
           }).replace(/,/g, "\\,");
           this.writeCommon(Nc.videoCapability, A);
           this.log(`device capability info: ${A}`);
-        } catch (e) {}
+        } catch (e) { }
       }
     }, {
       key: "persistUserSetting",
@@ -20623,7 +20623,7 @@ var SuperPlayerExport = function (e) {
             var a;
             var s;
             r = (s = A.resData) === null || s === undefined || (a = s.vl) === null || a === undefined ? undefined : a.vi[0];
-          } catch (e) {}
+          } catch (e) { }
           if (this.player.isFakeLive && r) {
             this.writeCommon(Nc.vid, r.vid);
             this.writeCommon(Nc.cid, r.cid);
@@ -20777,7 +20777,7 @@ var SuperPlayerExport = function (e) {
   });
   a(Uc, e.PLAY_EVENT.AUTOPLAY_BLOCKED, {
     evt: e.H5_PLAY_EVENT.VIDEO_AUTOPLAY_BLOCKED,
-    getParam: function () {}
+    getParam: function () { }
   });
   var qc = Uc;
   var Wc = [e.H5_PLAY_EVENT.AD_REQ_INFO_START, e.H5_PLAY_EVENT.AD_REQ_INFO_END, e.H5_PLAY_EVENT.AD_REQ_ASSETS_START, e.H5_PLAY_EVENT.AD_ASSETS_LOADED, e.H5_PLAY_EVENT.AD_END, e.H5_PLAY_EVENT.AD_PLAYING, e.H5_PLAY_EVENT.AD_AUTOPLAY_BLOCKED, e.H5_PLAY_EVENT.AD_PAUSE, e.H5_PLAY_EVENT.AD_RESUME, e.H5_PLAY_EVENT.AD_TIME_UPDATE, e.H5_PLAY_EVENT.AD_VOLUME_CHANGE, e.H5_PLAY_EVENT.AD_SHOW, e.H5_PLAY_EVENT.AD_HIDE];
@@ -21027,7 +21027,7 @@ var SuperPlayerExport = function (e) {
                 }
                 u.label = 1;
               case 1:
-                u.trys.push([1, 7,, 8]);
+                u.trys.push([1, 7, , 8]);
                 if (g === e.FullScreenMode.FAKE_FULLSCREEN) {
                   (function (e) {
                     var t = !(arguments.length > 1) || arguments[1] === undefined || arguments[1];
@@ -21045,7 +21045,7 @@ var SuperPlayerExport = function (e) {
                 }
                 u.label = 2;
               case 2:
-                u.trys.push([2, 4,, 6]);
+                u.trys.push([2, 4, , 6]);
                 return [4, nu(i, t)];
               case 3:
                 u.sent();
@@ -21802,7 +21802,7 @@ var SuperPlayerExport = function (e) {
               }
               r.label = 1;
             case 1:
-              r.trys.push([1, 4,, 5]);
+              r.trys.push([1, 4, , 5]);
               return [4, c.storageDefer.promise];
             case 2:
               r.sent();
@@ -21853,7 +21853,7 @@ var SuperPlayerExport = function (e) {
           return F(this, function (i) {
             switch (i.label) {
               case 0:
-                i.trys.push([0,, 2, 3]);
+                i.trys.push([0, , 2, 3]);
                 t.isDestroy = true;
                 t.setPollLogger(false);
                 t.setPageWatcher(false);
@@ -21890,7 +21890,7 @@ var SuperPlayerExport = function (e) {
                 }
                 i.label = 1;
               case 1:
-                i.trys.push([1, 3,, 4]);
+                i.trys.push([1, 3, , 4]);
                 return [4, n.remoteStorage.report({
                   downloadOnFailed: e,
                   reportSource: t,
@@ -21921,7 +21921,7 @@ var SuperPlayerExport = function (e) {
           return F(this, function (i) {
             switch (i.label) {
               case 0:
-                i.trys.push([0,, 2, 3]);
+                i.trys.push([0, , 2, 3]);
                 return [4, o.storeLogs()];
               case 1:
                 i.sent();
@@ -21947,7 +21947,7 @@ var SuperPlayerExport = function (e) {
           this.logger.log(`TOP URL: ${ts.getTopFrameUrl()}`);
           this.logger.log(`Kernel List: ${Object.keys(eg.kernelMap).join(",")}`);
           this.logger.log(`PlayItem: ${za.safelyStringify(this.player.currentPlayItem)}`);
-        } catch (e) {}
+        } catch (e) { }
       }
     }, {
       key: "initStorage",
@@ -21970,7 +21970,7 @@ var SuperPlayerExport = function (e) {
                 A = n === undefined ? bu : n;
                 a.label = 1;
               case 1:
-                a.trys.push([1, 4,, 5]);
+                a.trys.push([1, 4, , 5]);
                 return [4, i(e.player).promise];
               case 2:
                 a.sent();
@@ -22028,7 +22028,7 @@ var SuperPlayerExport = function (e) {
                 g.whiteListLoadDefer = new Un();
                 A.label = 1;
               case 1:
-                A.trys.push([1, 3,, 4]);
+                A.trys.push([1, 3, , 4]);
                 return [4, wu(t)];
               case 2:
                 o = A.sent();
@@ -22145,7 +22145,7 @@ var SuperPlayerExport = function (e) {
                 }
                 r.label = 1;
               case 1:
-                r.trys.push([1, 3,, 4]);
+                r.trys.push([1, 3, , 4]);
                 return [4, g.whiteListLoadDefer.promise];
               case 2:
                 r.sent();
@@ -22189,7 +22189,7 @@ var SuperPlayerExport = function (e) {
                 }
                 r.label = 5;
               case 5:
-                r.trys.push([5, 7,, 8]);
+                r.trys.push([5, 7, , 8]);
                 return [4, o.storageDefer.promise];
               case 6:
                 r.sent();
@@ -22456,7 +22456,7 @@ var SuperPlayerExport = function (e) {
         return F(this, function (t) {
           switch (t.label) {
             case 0:
-              t.trys.push([0, 3,, 4]);
+              t.trys.push([0, 3, , 4]);
               return [4, l.storageDefer.promise];
             case 1:
               t.sent();
@@ -22509,7 +22509,7 @@ var SuperPlayerExport = function (e) {
           return F(this, function (i) {
             switch (i.label) {
               case 0:
-                i.trys.push([0,, 2, 3]);
+                i.trys.push([0, , 2, 3]);
                 t.isDestroy = true;
                 t.setPlayerEvt(false);
                 t.setPageWatcher(false);
@@ -22543,7 +22543,7 @@ var SuperPlayerExport = function (e) {
                 }
                 i.label = 1;
               case 1:
-                i.trys.push([1, 3,, 4]);
+                i.trys.push([1, 3, , 4]);
                 return [4, n.reportLogs({
                   downloadOnFailed: e,
                   reportSource: t,
@@ -22607,7 +22607,7 @@ var SuperPlayerExport = function (e) {
                 }
                 l.label = 1;
               case 1:
-                l.trys.push([1, 3,, 4]);
+                l.trys.push([1, 3, , 4]);
                 return [4, (r = o.offlineStorage) === null || r === undefined ? undefined : r.reportLog(n)];
               case 2:
                 a = l.sent();
@@ -22657,7 +22657,7 @@ var SuperPlayerExport = function (e) {
           this.logger.log(`TOP URL: ${ts.getTopFrameUrl()}`);
           this.logger.log(`Kernel List: ${Object.keys(eg.kernelMap).join(",")}`);
           this.logger.log(`PlayItem: ${za.safelyStringify(this.player.currentPlayItem)}`);
-        } catch (e) {}
+        } catch (e) { }
       }
     }, {
       key: "initStorage",
@@ -22677,7 +22677,7 @@ var SuperPlayerExport = function (e) {
                 i = o === undefined ? Uu : o;
                 r.label = 1;
               case 1:
-                r.trys.push([1, 3,, 4]);
+                r.trys.push([1, 3, , 4]);
                 return [4, i(e.player).promise];
               case 2:
                 r.sent();
@@ -22739,7 +22739,7 @@ var SuperPlayerExport = function (e) {
                 g.whiteListLoadDefer = new Un();
                 A.label = 1;
               case 1:
-                A.trys.push([1, 3,, 4]);
+                A.trys.push([1, 3, , 4]);
                 return [4, ju(t)];
               case 2:
                 o = A.sent();
@@ -22835,7 +22835,7 @@ var SuperPlayerExport = function (e) {
                 }
                 r.label = 1;
               case 1:
-                r.trys.push([1, 3,, 4]);
+                r.trys.push([1, 3, , 4]);
                 return [4, g.whiteListLoadDefer.promise];
               case 2:
                 r.sent();
@@ -22879,7 +22879,7 @@ var SuperPlayerExport = function (e) {
                 }
                 r.label = 5;
               case 5:
-                r.trys.push([5, 7,, 8]);
+                r.trys.push([5, 7, , 8]);
                 return [4, o.storageDefer.promise];
               case 6:
                 r.sent();
@@ -23150,11 +23150,11 @@ var SuperPlayerExport = function (e) {
     var e = "";
     try {
       e = "1.57.5";
-    } catch (e) {}
+    } catch (e) { }
     var t = "";
     try {
       t = 1765800047926;
-    } catch (e) {}
+    } catch (e) { }
     return {
       VERSION: e,
       BUILD_TIME: t
@@ -23491,7 +23491,7 @@ var SuperPlayerExport = function (e) {
                 t.preloadOverDefer = new Un();
                 i.label = 1;
               case 1:
-                i.trys.push([1, 3,, 4]);
+                i.trys.push([1, 3, , 4]);
                 return [4, t.preloadImpl()];
               case 2:
                 i.sent();
@@ -23682,7 +23682,7 @@ var SuperPlayerExport = function (e) {
       }
     }, {
       key: "setInput",
-      value: function () {}
+      value: function () { }
     }, {
       key: "startImpl",
       value: function () {
@@ -23887,14 +23887,14 @@ var SuperPlayerExport = function (e) {
       value: function () {
         try {
           this.adPlugin.pauseAd(this.getAdType());
-        } catch (e) {}
+        } catch (e) { }
       }
     }, {
       key: "resumeImpl",
       value: function () {
         try {
           this.adPlugin.resumeAd(this.getAdType());
-        } catch (e) {}
+        } catch (e) { }
       }
     }, {
       key: "stopImpl",
@@ -23933,7 +23933,7 @@ var SuperPlayerExport = function (e) {
           return F(this, function (r) {
             switch (r.label) {
               case 0:
-                r.trys.push([0, 4,, 5]);
+                r.trys.push([0, 4, , 5]);
                 if ((i = e == null ? undefined : e.adInfo) === null || i === undefined) {
                   return [3, 1];
                 } else {
@@ -23992,7 +23992,7 @@ var SuperPlayerExport = function (e) {
                 }
                 A.label = 2;
               case 2:
-                A.trys.push([2, 4,, 5]);
+                A.trys.push([2, 4, , 5]);
                 return [4, t.loadAd()];
               case 3:
                 if ((i = A.sent()) === true) {
@@ -24022,13 +24022,13 @@ var SuperPlayerExport = function (e) {
       }
     }, {
       key: "onAdAssetsLoaded",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "onAdCountdown",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "onAdAutoPlayBlocked",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "setAdInfo",
       value: function (e) {
@@ -24101,7 +24101,7 @@ var SuperPlayerExport = function (e) {
       }
     }, {
       key: "setInput",
-      value: function () {}
+      value: function () { }
     }, {
       key: "getAdType",
       value: function () {
@@ -24264,7 +24264,7 @@ var SuperPlayerExport = function (e) {
                 }
                 s.label = 2;
               case 2:
-                s.trys.push([2, 4,, 5]);
+                s.trys.push([2, 4, , 5]);
                 t.adFunnel.setAdInfo(o, true);
                 return [4, (i = (n = t.adPlugin).preload) === null || i === undefined ? undefined : i.call(n, o, {
                   vid: t.context.vid,
@@ -24839,7 +24839,7 @@ var SuperPlayerExport = function (e) {
                 }
                 a.label = 1;
               case 1:
-                a.trys.push([1, 3,, 4]);
+                a.trys.push([1, 3, , 4]);
                 i = e.videoInfo;
                 n = e.retryWithoutGetInfo;
                 A = n && i ? i.config : t.context.playItem;
@@ -24882,7 +24882,7 @@ var SuperPlayerExport = function (e) {
                 n = +new Date();
                 s.label = 1;
               case 1:
-                s.trys.push([1, 3,, 4]);
+                s.trys.push([1, 3, , 4]);
                 return [4, t.context.getUrlConfigByPlayItem(t.inputGetinfoCtx)];
               case 2:
                 A = s.sent();
@@ -25003,7 +25003,7 @@ var SuperPlayerExport = function (e) {
       }
     }, {
       key: "beforePrepareRetry",
-      value: function (e) {}
+      value: function (e) { }
     }, {
       key: "preloadLive",
       value: function (e) {
@@ -25644,7 +25644,7 @@ var SuperPlayerExport = function (e) {
                 n.currentFlowNodeChain = new wE(i, n.emitters, n.handlerFlowNodeEvts);
                 r.label = 1;
               case 1:
-                r.trys.push([1, 3,, 4]);
+                r.trys.push([1, 3, , 4]);
                 return [4, n.currentFlowNode.preload()];
               case 2:
                 r.sent();
@@ -25691,7 +25691,7 @@ var SuperPlayerExport = function (e) {
                 }
                 s.label = 1;
               case 1:
-                s.trys.push([1, 3,, 4]);
+                s.trys.push([1, 3, , 4]);
                 return [4, r.config.preloadFlowNodesCallback(r.currentFlowNodeChain, r.preloadFlowNodeChain, A)];
               case 2:
                 s.sent();
@@ -27046,7 +27046,7 @@ var SuperPlayerExport = function (e) {
           "Content-Type": "application/x-www-form-urlencoded"
         },
         body: a
-      }).catch(function () {});
+      }).catch(function () { });
     } else {
       new Image().src = `${n}&${a}`;
     }
@@ -27123,7 +27123,7 @@ var SuperPlayerExport = function (e) {
           if (typeof this.config?.onAfterReport == "function") {
             try {
               this.config.onAfterReport(o);
-            } catch (e) {}
+            } catch (e) { }
           }
         }
       }
@@ -27189,7 +27189,7 @@ var SuperPlayerExport = function (e) {
                   }
                   A.label = 2;
                 case 2:
-                  A.trys.push([2, 4,, 5]);
+                  A.trys.push([2, 4, , 5]);
                   return [4, Ja.loadScript("https://beacon.cdn.qq.com/sdk/4.5.30/beacon_web.min.js")];
                 case 3:
                   A.sent();
@@ -27288,7 +27288,7 @@ var SuperPlayerExport = function (e) {
                 }
                 l.label = 1;
               case 1:
-                l.trys.push([1, 4,, 5]);
+                l.trys.push([1, 4, , 5]);
                 return [4, e.loadBeaconSDK()];
               case 2:
                 l.sent();
@@ -28953,7 +28953,7 @@ var SuperPlayerExport = function (e) {
           var e = "npm";
           try {
             e = "npm";
-          } catch (e) {}
+          } catch (e) { }
           Rl.getReporter().collectUsage(1, e);
         })();
       }
@@ -29101,7 +29101,7 @@ var SuperPlayerExport = function (e) {
                 o = null;
                 s.label = 1;
               case 1:
-                s.trys.push([1, 3,, 4]);
+                s.trys.push([1, 3, , 4]);
                 return [4, (i = t.pluginManager) === null || i === undefined ? undefined : i.loadPlugin(e)];
               case 2:
                 o = s.sent();
@@ -29759,7 +29759,7 @@ var SuperPlayerExport = function (e) {
                 r = undefined;
                 s.label = 1;
               case 1:
-                s.trys.push([1, 3,, 4]);
+                s.trys.push([1, 3, , 4]);
                 return [4, EE(n.config.instanceId, n.currentPlayItem, t, o)];
               case 2:
                 r = s.sent();
@@ -30411,7 +30411,7 @@ var SuperPlayerExport = function (e) {
       if (kd()) {
         e = Rd(document.referrer || "");
       }
-    } catch (e) {}
+    } catch (e) { }
     return e;
   }
   function Rd(e) {
@@ -30428,7 +30428,7 @@ var SuperPlayerExport = function (e) {
       if (kd()) {
         e = Rd(top.location.href || "");
       }
-    } catch (e) {}
+    } catch (e) { }
     return e;
   }
   function kd() {
@@ -30893,7 +30893,7 @@ var SuperPlayerExport = function (e) {
             }
             c.label = 1;
           case 1:
-            c.trys.push([1, 3,, 4]);
+            c.trys.push([1, 3, , 4]);
             return [4, navigator.getBattery()];
           case 2:
             g = c.sent().charging;
@@ -31274,7 +31274,7 @@ var SuperPlayerExport = function (e) {
     return new ah(t, e);
   };
   var rh = function () {
-    function t() {}
+    function t() { }
     t.create = function () {
       var t = [];
       for (var o = 0; o < arguments.length; o++) {
@@ -32070,7 +32070,7 @@ var SuperPlayerExport = function (e) {
     var a = t.h38; // 额外信息
     // 使用updateTimeStamp或Nd()函数生成时间戳
     var s = `${i}` || Nd();
-    
+
     // 定义内部函数生成加密的cKey
     var l = function (e) {
       // 生成11位随机字符串作为nonce
@@ -32082,7 +32082,7 @@ var SuperPlayerExport = function (e) {
         }
         return i;
       }(11);
-      
+
       // 解析参数
       var i = e.vid; // 视频ID
       var n = e.ts; // 时间戳
@@ -32095,7 +32095,7 @@ var SuperPlayerExport = function (e) {
       var c = g === undefined ? "" : g;
       var u = e.busJSON; // 业务JSON数据（可选）
       var E = u === undefined ? "" : u;
-      
+
       // 构建要加密的数据对象
       var d = {
         vid: i,
@@ -32111,13 +32111,13 @@ var SuperPlayerExport = function (e) {
       d.sj = c;
       d.bj = E;
       d.os = JSON.stringify({}); // 空的操作系统信息
-      
+
       // 配置AES加密参数
       var B = {};
       B.iv = sh.parse("CFAC216FAA2D396013575D4055C63350"); // 固定IV
       B.mode = mh; // 加密模式
       B.padding = Qh; // 填充方式
-      
+
       // 执行AES加密
       var h = zh.encrypt(JSON.stringify(d), sh.parse("2A5AA60178AA6C8DA662E443773A6C4E"), B);
       // 返回加密结果，格式为"--01" + 大写的密文
@@ -32130,7 +32130,7 @@ var SuperPlayerExport = function (e) {
       platform: r,
       h38: a
     });
-    
+
     return {
       tm: s, // 时间戳
       cKey: l, // 加密的cKey
@@ -32147,7 +32147,7 @@ var SuperPlayerExport = function (e) {
       var t = [];
       try {
         t = JSON.parse(e);
-      } catch (e) {}
+      } catch (e) { }
       if (!t || !R(t, Array) || t.length <= 0) {
         return;
       }
@@ -32155,8 +32155,8 @@ var SuperPlayerExport = function (e) {
       t.forEach(function (e) {
         Object.assign(o, function (e) {
           for (var t = e ? e.split("; ") : [], o = {}, i = {
-              value: ""
-            }, n = 0; n < t.length; n++) {
+            value: ""
+          }, n = 0; n < t.length; n++) {
             var A = I(t[n].split("="), 2);
             var r = A[0];
             var a = A[1];
@@ -32177,7 +32177,7 @@ var SuperPlayerExport = function (e) {
         var o = t[e];
         try {
           document.cookie = `${e}=${o.value}; domain=.${location.host}; path=/; expires=${o.expires}`;
-        } catch (e) {}
+        } catch (e) { }
       });
     }
   }
@@ -32445,7 +32445,7 @@ var SuperPlayerExport = function (e) {
             var A = fp;
             switch (n.label) {
               case 0:
-                n.trys.push([0, 2,, 3]);
+                n.trys.push([0, 2, , 3]);
                 return [4, (t = (o = e.ctx.config).contextModifier) === null || t === undefined ? undefined : t.call(o, e.ctx)];
               case 1:
                 n.sent();
@@ -32835,7 +32835,7 @@ var SuperPlayerExport = function (e) {
             t.alreadyRetryCount = s;
             m.label = 2;
           case 2:
-            m.trys.push([2, 9,, 11]);
+            m.trys.push([2, 9, , 11]);
             a = null;
             t.reqPath = function (e, t) {
               var o = Op;
@@ -32961,7 +32961,7 @@ var SuperPlayerExport = function (e) {
               t.logger.cache("send over", C);
               t.logger.cache("send over", I);
               t.logger.cache("send over", y);
-            } catch (e) {}
+            } catch (e) { }
             return [4, o()];
           case 13:
             // m.sent()的核心用法6：标记最终异步操作完成
@@ -33547,7 +33547,7 @@ var SuperPlayerExport = function (e) {
           }
         });
       }
-    } catch (e) {}
+    } catch (e) { }
     o.sort(function (e, o) {
       var i = t;
       return e.start - o.start;
@@ -34038,14 +34038,14 @@ var SuperPlayerExport = function (e) {
             }
             // 将外部视频信息数据赋值给上下文
             i.resData = t;
-            
+
             // 获取或使用默认中间件
             A = n.config.sendRequestMiddleWare || Hp; // 发送请求中间件，默认Hp
             r = n.config.checkResponseMiddleWare || nv; // 检查响应中间件，默认nv
             a = n.config.parseResponseMiddleWare || Qv; // 解析响应中间件，默认Qv
             s = n.config.preMiddlewares || []; // 前置中间件数组
             l = n.config.postMiddlewares || []; // 后置中间件数组
-            
+
             // 核心：构建中间件执行管道并执行
             // 执行顺序：前置中间件 → 发送请求中间件 → 检查响应中间件 → 解析响应中间件 → 后置中间件
             n.cachedResult[e] = ip(C(s).concat([A, r, a], C(l)))(i).then(function () {
@@ -34168,7 +34168,7 @@ var SuperPlayerExport = function (e) {
               if (o.cachedResult) {
                 o.cachedResult[e.vid] = undefined;
               }
-              return [2, new Promise(function () {})];
+              return [2, new Promise(function () { })];
             } else {
               e.parseData;
               e.resData;
@@ -34196,7 +34196,7 @@ var SuperPlayerExport = function (e) {
               if (o.cachedResult) {
                 o.cachedResult[e.vid] = undefined;
               }
-              return [2, new Promise(function () {})];
+              return [2, new Promise(function () { })];
             } else {
               e.error = zp(t);
               o.logger.error(`err, code=${e.error.code}, msg=${e.error.message}, stack=${e.error.stack}`);
@@ -34424,14 +34424,14 @@ var SuperPlayerExport = function (e) {
           keySystem: c[A],
           licenseRequestSetup: function (e) {
             var t = n;
-            if (A === Rc[t(255)]) {
-              e[t(271)] = t(316);
+            if (A === Rc["ChinaDRM2"]) {
+              e["responseType"] = "arraybuffer";
             } else {
-              e[t(271)] = t(187);
+              e[t("responseType")] = "json";
             }
-            if (A === Rc[t(250)]) {
+            if (A === Rc["FAIR_PLAY"]) {
               var o = {
-                guid: g(Nc[t(251)]),
+                guid: g(Nc["guid"]),
                 fmt: g(Nc[t(286)]),
                 vid: l
               };
@@ -34453,7 +34453,7 @@ var SuperPlayerExport = function (e) {
             var i = e[t(294)];
             var r = e[t(194)];
             if (o === 0) {
-              return es[t(308)](i);
+              return es["base64ToUint8Array"](i);
             }
             throw {
               code: o,
@@ -34930,7 +34930,7 @@ var SuperPlayerExport = function (e) {
             t.logger.log("retry... count is: ", c);
             d.label = 2;
           case 2:
-            d.trys.push([2, 4,, 5]);
+            d.trys.push([2, 4, , 5]);
             g = null;
             t.reqPath = function (e, t) {
               var o = e.test;
@@ -35051,7 +35051,7 @@ var SuperPlayerExport = function (e) {
         var c = this.config.parseResponseMiddleWare || Hv;
         this.middlewares = [s, l, g, c];
         var E = ip(this.middlewares);
-        var d = new Promise(function () {});
+        var d = new Promise(function () { });
         return E(r).then(function () {
           if (i.aborted || i.seq !== r.seq) {
             return d;
@@ -35352,7 +35352,7 @@ var SuperPlayerExport = function (e) {
     return n;
   }
   var Ef = function () {
-    function e() {}
+    function e() { }
     e.verifyAppkey = function (e) {
       if (["127.0.0.1", "localhost", "0.0.0.0"].indexOf(location.hostname) !== -1) {
         return Jv.succ;
@@ -35517,7 +35517,7 @@ var SuperPlayerExport = function (e) {
     }
     r(e, [{
       key: "init",
-      value: function () {}
+      value: function () { }
     }, {
       key: "destroy",
       value: function () {
@@ -36738,7 +36738,7 @@ ${jf}`
     }
     try {
       e = sessionStorage.getItem("ptag");
-    } catch (e) {}
+    } catch (e) { }
     if (e) {
       return e;
     }
@@ -36768,7 +36768,7 @@ ${jf}`
         _dc: Math.random()
       });
       navigator.sendBeacon(t, ts.object2string(i));
-    } catch (e) {}
+    } catch (e) { }
   }
   function oI() {
     var e = "other";
@@ -38064,7 +38064,7 @@ ${jf}`
   var LI = CI;
   var YI = "__tp-browser-features";
   var RI = function () {
-    function e() {}
+    function e() { }
     e.enable = function () {
       this.enabled = true;
     };
@@ -38110,7 +38110,7 @@ ${jf}`
                     return F(this, function (i) {
                       switch (i.label) {
                         case 0:
-                          i.trys.push([0, 2,, 3]);
+                          i.trys.push([0, 2, , 3]);
                           return [4, t[e]()];
                         case 1:
                           o = i.sent();
@@ -38975,7 +38975,7 @@ ${jf}`
           var e = "";
           try {
             e = "1.49.4";
-          } catch (e) {}
+          } catch (e) { }
           return e;
         }();
         return {
@@ -39104,7 +39104,7 @@ ${jf}`
                 try {
                   u = Yg(o).getPlayerInstance(e.AD_TYPE.PRE);
                   c = u.currentVideoInfo.cacheSize ?? 0;
-                } catch (e) {}
+                } catch (e) { }
                 if (u) {
                   if (E = Ln.timing(u.config.instanceId)) {
                     ZI(E, l);
@@ -39759,7 +39759,7 @@ ${jf}`
               var t = null;
               try {
                 t = e.getContext("webgl") || e.getContext("experimental-webgl");
-              } catch (e) {}
+              } catch (e) { }
               t ||= null;
               return t;
             }();
@@ -40123,7 +40123,7 @@ ${jf}`
                         writable: false,
                         enumerable: false
                       });
-                    } catch (e) {}
+                    } catch (e) { }
                     break;
                   case 20:
                     u[o[++d]][o[++d]] = u[o[++d]];
@@ -40272,7 +40272,7 @@ ${jf}`
                         writable: false,
                         enumerable: false
                       });
-                    } catch (e) {}
+                    } catch (e) { }
                     break;
                   case 58:
                     u[o[++d]] = !u[o[++d]];
@@ -40401,7 +40401,7 @@ ${jf}`
                         writable: false,
                         enumerable: false
                       });
-                    } catch (e) {}
+                    } catch (e) { }
                     break;
                   case 93:
                     u[o[++d]] = u[o[++d]][o[++d]];
@@ -40490,8 +40490,8 @@ ${jf}`
     set Symbol(e) {
       Symbol = e;
     },
-    get undefined() {},
-    set undefined(e) {},
+    get undefined() { },
+    set undefined(e) { },
     get TypeError() {
       if (typeof TypeError == "undefined") {
         return undefined;
@@ -40925,7 +40925,7 @@ ${jf}`
           try {
             var o = r.context.container;
             r.hasAdVideoEl = !!o.querySelector("[data-role=\"creative-player-video-container\"] video");
-          } catch (t) {}
+          } catch (t) { }
           r.setAdFunnelFlag(3);
         }
       });
@@ -41993,7 +41993,7 @@ ${jf}`
       n = r.degradeReason;
       e = r.videoCodec;
       t = r.defn;
-    } catch (e) {}
+    } catch (e) { }
     if (Number.isNaN(o) || Number.isNaN(i) || Date.now() >= o + i) {
       return {
         needDegrade: false
@@ -42192,7 +42192,7 @@ ${jf}`
                 });
                 B.label = 1;
               case 1:
-                B.trys.push([1, 3,, 4]);
+                B.trys.push([1, 3, , 4]);
                 return [4, n.context.getVideoInfo()];
               case 2:
                 a = B.sent().getinfoRet;
@@ -42353,7 +42353,7 @@ ${jf}`
             onlyCurrent: !u,
             reportSource: "codecDegrade"
           })) !== null && t !== undefined) {
-            t.catch(function () {});
+            t.catch(function () { });
           }
         } catch (e) {
           this.error("reportDegradeIfNeed skipped, error: ", e);
@@ -42615,7 +42615,7 @@ ${jf}`
               var n = t.ext.replace("m3u8_head_time=", "").replace("m3u8_tail_time=", "").split("&");
               o = JSON.parse(n[0]);
               i = JSON.parse(n[1]);
-            } catch (e) {}
+            } catch (e) { }
           }
           this.log(`vids range=[${o}], [${i}]`);
           this.vidIndex = 0;
@@ -43006,7 +43006,7 @@ ${jf}`
               }
               a.label = 1;
             case 1:
-              a.trys.push([1, 3,, 4]);
+              a.trys.push([1, 3, , 4]);
               e = o.config;
               t = e.usKeyBusinessId;
               i = e.usKeyDataSchema;
@@ -43060,7 +43060,7 @@ ${jf}`
                 }
                 i.label = 1;
               case 1:
-                i.trys.push([1, 3,, 4]);
+                i.trys.push([1, 3, , 4]);
                 return [4, self.txv.vip.getVipInfo()];
               case 2:
                 t = i.sent().vip;
@@ -44090,7 +44090,7 @@ ${jf}`
                     if (e.sspAdParam) {
                       try {
                         n = JSON.stringify(e.sspAdParam);
-                      } catch (e) {}
+                      } catch (e) { }
                     }
                   } else {
                     i = e ? pn(e) : undefined;
@@ -44130,7 +44130,7 @@ ${jf}`
                 }
                 h.label = 2;
               case 2:
-                h.trys.push([2, 4,, 5]);
+                h.trys.push([2, 4, , 5]);
                 l.reqPath = A.getRequestUrl(g);
                 A.logger.log(`req start, num=${g}, url=${l.reqPath}`);
                 bs.observer(A.playerInstanceId, {
@@ -44164,7 +44164,7 @@ ${jf}`
                 return [3, 5];
               case 5:
                 if (A.aborted) {
-                  return [2, new Promise(function () {})];
+                  return [2, new Promise(function () { })];
                 }
                 l.alreadyRetryCount = g;
                 if (l.resData) {
@@ -44252,26 +44252,26 @@ ${jf}`
         // 该函数用于解析代理HTTP请求返回的广告和视频信息数据
         // e: 包含响应数据的对象，结构为 { resData, reqParams, ... }
         var i = t;
-        
+
         // 检查是否启用了可信JSON解析器
         // 从配置中获取tvkConfig.enableTrustedJSON设置
         var n = (this.config.tvkConfig || {}).enableTrustedJSON;
-        
+
         // 如果存在响应数据，则进行解析
         if (e.resData) {
           // 检查响应是否成功（errCode === 0表示成功）
           if (e.resData.errCode === 0) {
             // 初始化解析后的数据对象
             e.parseData = {};
-            
+
             // 获取SSP Key
             // 从请求参数的adparam中提取sspKey值
             var A = this.getSspKey(e.reqParams?.adparam);
-            
+
             // 获取广告数据
             // 优先使用SSP Key对应的字段，如果不存在则使用ad字段
             var r = e.resData[A] || e.resData.ad;
-            
+
             // 解析广告数据
             if (r) {
               try {
@@ -44289,7 +44289,7 @@ ${jf}`
               // 记录解析后的广告数据
               this.logger.log("ad res=", e.parseData.ad);
             }
-            
+
             // 解析视频信息数据
             if (e.resData.vinfo) {
               try {
@@ -44305,7 +44305,7 @@ ${jf}`
               // 记录解析后的视频信息
               this.logger.log("v res=", e.parseData.vinfo);
             }
-            
+
             // 处理广告Cookie
             // tp函数可能用于设置本地广告Cookie
             tp(e.resData.lcAdCookie);
@@ -45507,7 +45507,7 @@ ${jf}`
                       try {
                         var n = o(e.PersistedUserSettings.subtitle) || "";
                         i = JSON.parse(n);
-                      } catch (t) {}
+                      } catch (t) { }
                       var A;
                       var r;
                       var a;
@@ -47186,10 +47186,10 @@ ${jf}`
       t.style.left = `${i}%`;
       t.innerText = n;
     };
-    o.prototype.updateBufferedBar = function () {};
-    o.prototype.onTimeUpdate = function () {};
-    o.prototype.onStateChange = function () {};
-    o.prototype.beforeSeek = function () {};
+    o.prototype.updateBufferedBar = function () { };
+    o.prototype.onTimeUpdate = function () { };
+    o.prototype.onStateChange = function () { };
+    o.prototype.beforeSeek = function () { };
     o.prototype.doSeek = function (e) {
       this.seek(e);
     };
@@ -47730,10 +47730,10 @@ ${jf}`
       var A = this.player.currentVideoElement;
       if (this.isWasmKernel()) {
         if ((o = (t = (e = A == null ? undefined : A.exitPictureInPicture) === null || e === undefined ? undefined : e.call(A)) === null || t === undefined ? undefined : t.catch) !== null && o !== undefined) {
-          o.call(t, function () {});
+          o.call(t, function () { });
         }
       } else if ((n = (i = document.exitPictureInPicture()) === null || i === undefined ? undefined : i.catch) !== null && n !== undefined) {
-        n.call(i, function () {});
+        n.call(i, function () { });
       }
       this.setDOMStatus(true);
     };
@@ -49829,7 +49829,7 @@ ${jf}`
       feedback: true
     }],
     defaultMsg: Sw.V_DEFAULT_ERROR_MSG,
-    callback: function () {}
+    callback: function () { }
   };
   function Dw(e) {
     if (e.support && e.sso) {
@@ -49855,7 +49855,7 @@ ${jf}`
             i.remove();
           }
         })(e.atag);
-      } catch (e) {}
+      } catch (e) { }
       try {
         vw(function (t) {
           if (t) {
@@ -49936,7 +49936,7 @@ ${jf}`
     download: function () {
       try {
         location.assign("https://dldir1.qq.com/invc/tt/QQBrowser_Setup_DRM.exe");
-      } catch (e) {}
+      } catch (e) { }
     },
     open: function (e) {
       if (Pw.exist) {
@@ -50352,7 +50352,7 @@ ${jf}`
           support: true,
           atag: "playererror",
           sso: `qqlive://sso/vbarid=${r}&videoid=${A}&start=${a}&atag=web.playererror`,
-          success: function () {},
+          success: function () { },
           error: function () {
             this.openDownLoadLink();
           }
@@ -50661,7 +50661,7 @@ ${jf}`
       }
     }
     T(o, t);
-    o.prototype.start = function () {};
+    o.prototype.start = function () { };
     o.prototype.getItemDom = function (e) {
       if (this.elInner) {
         return this.itemDomMap[e];
@@ -50876,7 +50876,7 @@ ${jf}`
         return F(this, function (e) {
           switch (e.label) {
             case 0:
-              e.trys.push([0, 2,, 3]);
+              e.trys.push([0, 2, , 3]);
               return [4, Ow(JSON.stringify(this.curInfoMap))];
             case 1:
             case 2:
@@ -51750,7 +51750,7 @@ ${jf}`
             }
             n.label = 2;
           case 2:
-            n.trys.push([2, 4,, 5]);
+            n.trys.push([2, 4, , 5]);
             return [4, Wa.jsonp(e, {
               timeout: 5000
             })];
@@ -51777,28 +51777,28 @@ ${jf}`
     var r = e.repeat;
     var a = e.rw;
     for (var s = r === 0 ? Math.ceil(t / A) : r, l = function (t) {
-        var r = n + t * A;
-        e.scenes.forEach(function (e) {
-          var n = e.wi;
-          var A = e.in;
-          var s = e.out;
-          var l = e.start;
-          var g = e.end;
-          n.forEach(function (e) {
-            i[e.id] = S(S({}, e), {
-              actionType: "image",
-              rw: a
-            });
-            o[e.id] ||= [];
-            if (t >= l && (t <= g || t === 0)) {
-              o[e.id].push({
-                start: (r + A) / 1000,
-                end: (r + s) / 1000
-              });
-            }
+      var r = n + t * A;
+      e.scenes.forEach(function (e) {
+        var n = e.wi;
+        var A = e.in;
+        var s = e.out;
+        var l = e.start;
+        var g = e.end;
+        n.forEach(function (e) {
+          i[e.id] = S(S({}, e), {
+            actionType: "image",
+            rw: a
           });
+          o[e.id] ||= [];
+          if (t >= l && (t <= g || t === 0)) {
+            o[e.id].push({
+              start: (r + A) / 1000,
+              end: (r + s) / 1000
+            });
+          }
         });
-      }, g = 0; g < s; g++) {
+      });
+    }, g = 0; g < s; g++) {
       l(g);
     }
     return {
@@ -51975,7 +51975,7 @@ ${jf}`
             }
             n.label = 2;
           case 2:
-            n.trys.push([2, 4,, 5]);
+            n.trys.push([2, 4, , 5]);
             return [4, Wa.jsonp(e, {
               timeout: 5000
             })];
@@ -52153,7 +52153,7 @@ ${jf}`
       enumerable: false,
       configurable: true
     });
-    e.prototype.draw = function () {};
+    e.prototype.draw = function () { };
     e.prototype.restore = function () {
       this.createWatermarkNode();
     };
@@ -52163,9 +52163,9 @@ ${jf}`
         e.style.setProperty("display", "block");
       }
     };
-    e.prototype.hide = function () {};
-    e.prototype.play = function () {};
-    e.prototype.pause = function () {};
+    e.prototype.hide = function () { };
+    e.prototype.play = function () { };
+    e.prototype.pause = function () { };
     e.prototype.destroy = function () {
       if (this.element?.parentNode) {
         this.element.remove();
@@ -52248,8 +52248,8 @@ ${jf}`
       enumerable: false,
       configurable: true
     });
-    e.prototype.play = function () {};
-    e.prototype.pause = function () {};
+    e.prototype.play = function () { };
+    e.prototype.pause = function () { };
     e.prototype.destroy = function () {
       if (this.element?.parentNode) {
         this.element.remove();
@@ -52766,7 +52766,7 @@ ${jf}`
                   g = {};
                   h.label = 1;
                 case 1:
-                  h.trys.push([1, 3,, 4]);
+                  h.trys.push([1, 3, , 4]);
                   return [4, dT(i == null ? undefined : i.action, r * 1000)];
                 case 2:
                   c = h.sent();
@@ -52784,7 +52784,7 @@ ${jf}`
                   }
                   h.label = 5;
                 case 5:
-                  h.trys.push([5, 7,, 8]);
+                  h.trys.push([5, 7, , 8]);
                   return [4, fT(i == null ? undefined : i.animation, (a == null ? undefined : a.ad) ?? [])];
                 case 6:
                   u = h.sent();
@@ -52958,27 +52958,27 @@ ${jf}`
     var e = "npm";
     try {
       e = "cdn";
-    } catch (e) {}
+    } catch (e) { }
     var t = "";
     try {
       t = "1.57.5";
-    } catch (e) {}
+    } catch (e) { }
     var o = "";
     try {
       o = 1765800120515;
-    } catch (e) {}
+    } catch (e) { }
     var i = false;
     try {
       i = false;
-    } catch (e) {}
+    } catch (e) { }
     var n = "";
     try {
       n = process.env.__GRAY_VER__ || "";
-    } catch (e) {}
+    } catch (e) { }
     var A = false;
     try {
       A = true;
-    } catch (e) {}
+    } catch (e) { }
     return {
       CHANNEL: e,
       GRAY_VER: n,
@@ -53883,7 +53883,7 @@ ${jf}`
         if (o) {
           var i = yS[t];
           o.setCompDisable(i, !!e);
-          if (t === vS.HlsAd) ;else {
+          if (t === vS.HlsAd); else {
             o.setHotKeysDisable(!!e);
           }
         }
@@ -53911,7 +53911,7 @@ ${jf}`
             var i = null;
             try {
               i = JSON.parse(e.adpinfo);
-            } catch (e) {}
+            } catch (e) { }
             if (i != null && (t = i.plugin_info) !== null && t !== undefined) {
               t.forEach(function (e) {
                 if (+e.optype === pS.HLS_AD) {
@@ -54710,7 +54710,7 @@ ${jf}`
                             writable: false,
                             enumerable: false
                           });
-                        } catch (e) {}
+                        } catch (e) { }
                         break;
                       case 55:
                         B[i[++p]] = Array(i[++p]);
@@ -55193,7 +55193,7 @@ ${jf}`
       } else {
         return null;
       }
-    } catch (e) {}
+    } catch (e) { }
     return null;
   }
   function ZS(e, t) {
@@ -55446,25 +55446,25 @@ ${jf}`
           if (o) {
             throw new TypeError("Generator is already executing.");
           }
-          
+
           // 主循环，处理生成器的执行流程
           while (r) {
             try {
               o = 1; // 标记生成器正在执行
-              
+
               // 处理生成器的方法调用（next/throw/return）
               if (i && (n = A[0] & 2 ? i.return : A[0] ? i.throw || ((n = i.return) && n.call(i), 0) : i.next) && !(n = n.call(i, A[1])).done) {
                 // 如果生成器未完成，返回当前值
                 return n;
               }
-              
+
               i = 0; // 重置生成器状态
-              
+
               // 如果有返回值，更新 A 的状态
               if (n) {
                 A = [A[0] & 2, n.value];
               }
-              
+
               // 根据 A[0] 的值处理不同的流程控制指令
               switch (A[0]) {
                 case 0: // 正常流程
@@ -55492,27 +55492,27 @@ ${jf}`
                     r = 0; // 重置状态
                     continue;
                   }
-                  
+
                   // 处理 break 操作
                   if (A[0] === 3 && (!n || A[1] > n[0] && A[1] < n[3])) {
                     r.label = A[1];
                     break;
                   }
-                  
+
                   // 处理异常
                   if (A[0] === 6 && r.label < n[1]) {
                     r.label = n[1];
                     n = A;
                     break;
                   }
-                  
+
                   // 处理 try/finally
                   if (n && r.label < n[2]) {
                     r.label = n[2];
                     r.ops.push(A);
                     break;
                   }
-                  
+
                   // 处理 finally 块
                   if (n[2]) {
                     r.ops.pop();
@@ -55520,7 +55520,7 @@ ${jf}`
                   r.trys.pop();
                   continue;
               }
-              
+
               // 调用生成器函数，获取下一个状态
               A = t.call(e, r);
             } catch (e) {
@@ -55532,13 +55532,13 @@ ${jf}`
               o = n = 0;
             }
           }
-          
+
           // 处理最终结果
           if (A[0] & 5) {
             // 如果是异常，抛出错误
             throw A[1];
           }
-          
+
           // 返回最终结果
           return {
             value: A[0] ? A[1] : undefined, // 返回值
@@ -55718,7 +55718,7 @@ ${jf}`
           return A(e.oldVersion, e.newVersion, e);
         });
       }
-    }).catch(function () {});
+    }).catch(function () { });
     return s;
   }
   var Q_ = ["get", "getKey", "getAll", "getAllKeys", "count"];
@@ -55925,7 +55925,7 @@ ${jf}`
           return F(this, function (n) {
             switch (n.label) {
               case 0:
-                n.trys.push([0, 2,, 3]);
+                n.trys.push([0, 2, , 3]);
                 return [4, e.getDbInstance()];
               case 1:
                 n.sent();
@@ -55938,7 +55938,7 @@ ${jf}`
                 o = null;
                 n.label = 4;
               case 4:
-                n.trys.push([4, 6,, 7]);
+                n.trys.push([4, 6, , 7]);
                 return [4, e.db.getAll(N_)];
               case 5:
                 o = n.sent();
@@ -55972,7 +55972,7 @@ ${jf}`
                 }
                 r.label = 1;
               case 1:
-                r.trys.push([1, 3,, 4]);
+                r.trys.push([1, 3, , 4]);
                 return [4, t.getDbInstance()];
               case 2:
                 r.sent();
@@ -55982,7 +55982,7 @@ ${jf}`
                 t.logger.error("initDb(readCache)", n);
                 return [2, null];
               case 4:
-                r.trys.push([4, 6,, 7]);
+                r.trys.push([4, 6, , 7]);
                 return [4, t.db.get(N_, e)];
               case 5:
                 o = r.sent();
@@ -56011,7 +56011,7 @@ ${jf}`
           return F(this, function (n) {
             switch (n.label) {
               case 0:
-                n.trys.push([0, 2,, 3]);
+                n.trys.push([0, 2, , 3]);
                 return [4, t.getDbInstance()];
               case 1:
                 n.sent();
@@ -56021,7 +56021,7 @@ ${jf}`
                 t.logger.error("initDb(cache)", o);
                 return [2, false];
               case 3:
-                n.trys.push([3, 5,, 6]);
+                n.trys.push([3, 5, , 6]);
                 return [4, t.db.put(N_, e)];
               case 4:
                 n.sent();
@@ -56047,7 +56047,7 @@ ${jf}`
           return F(this, function (i) {
             switch (i.label) {
               case 0:
-                i.trys.push([0, 2,, 3]);
+                i.trys.push([0, 2, , 3]);
                 return [4, t.getDbInstance()];
               case 1:
                 i.sent();
@@ -56597,7 +56597,7 @@ ${jf}`
           return F(this, function (A) {
             switch (A.label) {
               case 0:
-                A.trys.push([0, 2,, 3]);
+                A.trys.push([0, 2, , 3]);
                 t.logger.log("loadByPlatform", e);
                 return [4, Wa.jsonp(`https://v.qq.com/cache/wuji/object?appid=thumbplayer_h5_config&schemaid=app_global_config&schemakey=0757ad48b1bd4588a93a3c948b73b7bf&datetime=timestamp&filter=${encodeURIComponent(`app_name=["${e}"]`)}&otype=jsonp&include=${q_.join(",")}`)];
               case 1:
@@ -56632,7 +56632,7 @@ ${jf}`
           return F(this, function (n) {
             switch (n.label) {
               case 0:
-                n.trys.push([0, 2,, 3]);
+                n.trys.push([0, 2, , 3]);
                 t.logger.log("loadById", e);
                 return [4, Wa.jsonp(`https://v.qq.com/cache/wuji/object/${e}?appid=thumbplayer_h5_config&schemaid=app_global_config&schemakey=0757ad48b1bd4588a93a3c948b73b7bf&datetime=timestamp&otype=jsonp&include=${q_.join(",")}`)];
               case 1:
@@ -57221,7 +57221,7 @@ ${jf}`
                 n = null;
                 a.label = 1;
               case 1:
-                a.trys.push([1, 3,, 4]);
+                a.trys.push([1, 3, , 4]);
                 o.superLogger.log("dynamicConfig is not exist, call DynamicConfigLoader.load()");
                 return [4, o.dynamicConfigLoader.load(t)];
               case 2:
@@ -57263,7 +57263,7 @@ ${jf}`
           var r = null;
           try {
             r = JSON.parse(A);
-          } catch (e) {}
+          } catch (e) { }
           if (!(r == null ? undefined : r.pid) || !(r == null ? undefined : r.chid)) {
             return ns(xa.superPlayer.ERROR_PARSE_PREVID);
           }
@@ -57749,7 +57749,7 @@ ${jf}`
             return F(this, function (A) {
               switch (A.label) {
                 case 0:
-                  A.trys.push([0, 2,, 3]);
+                  A.trys.push([0, 2, , 3]);
                   return [4, t.offlineLog.reportLogs({
                     reportSource: "error-page:click"
                   })];

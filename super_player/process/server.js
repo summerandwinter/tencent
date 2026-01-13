@@ -16,7 +16,7 @@ class DecryptService {
     async init() {
         console.log("正在启动浏览器...");
         this.browser = await puppeteer.launch({
-            headless: "new", 
+            headless: "new",
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
@@ -29,21 +29,21 @@ class DecryptService {
         await this.page.evaluateOnNewDocument(() => {
             window.__CAPTURED_MODIFIER__ = null;
             const trap = {
-                set: function(val) {
+                set: function (val) {
                     if (typeof val === 'function' && !window.__CAPTURED_MODIFIER__) {
                         window.__CAPTURED_MODIFIER__ = val;
                         console.log('>>> [Puppeteer Hook] 捕获到解密函数 [responseModifier]');
                         try {
                             Object.defineProperty(this, 'responseModifier', {
                                 value: val,
-                                writable: false, 
+                                writable: false,
                                 configurable: true
                             });
-                        } catch(e) {}
+                        } catch (e) { }
                     }
                     this._raw_modifier = val;
                 },
-                get: function() { return this._raw_modifier; },
+                get: function () { return this._raw_modifier; },
                 configurable: true
             };
             Object.defineProperty(Object.prototype, 'responseModifier', trap);
@@ -55,7 +55,7 @@ class DecryptService {
         // 2. 加载视频页
         const videoUrl = 'https://v.qq.com/x/cover/mzc00200lplzzrd/x0044ibkr4p.html';
         console.log("正在加载视频页并提取解密闭包...");
-        
+
         await this.page.goto(videoUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
         // 3. 强制诱导（切换清晰度）
@@ -67,7 +67,7 @@ class DecryptService {
                 const levels = player.getCommonKv('player_currentDefnList') || [];
                 if (levels.length > 1) {
                     const target = levels[levels.length - 1].value;
-                    player.setLevel(target); 
+                    player.setLevel(target);
                 }
             }
         });
@@ -85,7 +85,7 @@ class DecryptService {
 
     async decrypt(encryptedJson) {
         if (!this.isReady) throw new Error("服务初始化未完成");
-        
+
         return await this.page.evaluate(async (data) => {
             const fn = window.__CAPTURED_MODIFIER__;
             if (!fn) throw new Error("解密函数引用丢失");

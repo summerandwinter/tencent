@@ -8,18 +8,18 @@
 // 1. 简易环境模拟 (Polyfills)
 // ------------------------------------------------------------------
 const window = {
-    location: { href: "https://v.qq.com", hostname: "v.qq.com" }
+  location: { href: "https://v.qq.com", hostname: "v.qq.com" }
 };
 const navigator = { userAgent: "node" };
 const document = {
-    createElement: () => ({ getContext: () => ({}), toDataURL: () => "" }),
-    location: window.location
+  createElement: () => ({ getContext: () => ({}), toDataURL: () => "" }),
+  location: window.location
 };
 const location = window.location;
 
 // Node.js 版 atob
 function atob(str) {
-    return Buffer.from(str, 'base64').toString('binary');
+  return Buffer.from(str, 'base64').toString('binary');
 }
 
 // ------------------------------------------------------------------
@@ -406,177 +406,245 @@ function XC(e, t) {
 // ------------------------------------------------------------------
 console.log("正在初始化解密字典 (Running Shufflers)...");
 try {
-    (function(){ try { (function (e, t) {
-  for (var o = Jh, i = e();;) try {
-    if (581243 === parseInt(o(508)) / 1 + -parseInt(o(510)) / 2 * (-parseInt(o(632)) / 3) + parseInt(o(517)) / 4 + -parseInt(o(593)) / 5 * (-parseInt(o(641)) / 6) + parseInt(o(502)) / 7 + -parseInt(o(583)) / 8 + -parseInt(o(511)) / 9) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}(Wh)); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = fp, i = Ip();;) try {
-    if (948680 == -parseInt(o(402)) / 1 + parseInt(o(382)) / 2 + -parseInt(o(400)) / 3 + parseInt(o(392)) / 4 + parseInt(o(386)) / 5 + -parseInt(o(384)) / 6 * (parseInt(o(387)) / 7) + parseInt(o(396)) / 8 * (-parseInt(o(394)) / 9)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = Qp, i = mp();;) try {
-    if (948294 == parseInt(o(143)) / 1 * (-parseInt(o(144)) / 2) + -parseInt(o(134)) / 3 * (parseInt(o(135)) / 4) + parseInt(o(120)) / 5 * (parseInt(o(121)) / 6) + parseInt(o(145)) / 7 * (-parseInt(o(127)) / 8) + parseInt(o(123)) / 9 + parseInt(o(128)) / 10 + -parseInt(o(138)) / 11 * (-parseInt(o(142)) / 12)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = Sp, i = _p();;) try {
-    if (332606 == parseInt(o(406)) / 1 * (parseInt(o(396)) / 2) + parseInt(o(401)) / 3 * (parseInt(o(402)) / 4) + -parseInt(o(403)) / 5 * (parseInt(o(398)) / 6) + parseInt(o(404)) / 7 * (parseInt(o(397)) / 8) + parseInt(o(395)) / 9 + parseInt(o(399)) / 10 * (parseInt(o(400)) / 11) + -parseInt(o(405)) / 12) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = Mp, i = bp();;) try {
-    if (845835 == -parseInt(o(414)) / 1 + parseInt(o(360)) / 2 * (parseInt(o(368)) / 3) + parseInt(o(363)) / 4 * (-parseInt(o(380)) / 5) + -parseInt(o(355)) / 6 + parseInt(o(374)) / 7 + -parseInt(o(352)) / 8 * (parseInt(o(397)) / 9) + parseInt(o(413)) / 10) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = Kp, i = qp();;) try {
-    if (565569 == -parseInt(o(491)) / 1 + -parseInt(o(492)) / 2 * (-parseInt(o(458)) / 3) + parseInt(o(510)) / 4 + -parseInt(o(515)) / 5 * (parseInt(o(452)) / 6) + -parseInt(o(507)) / 7 * (parseInt(o(490)) / 8) + parseInt(o(519)) / 9 * (parseInt(o(457)) / 10) + -parseInt(o(484)) / 11 * (-parseInt(o(470)) / 12)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = $p, i = ev();;) try {
-    if (468670 == -parseInt(o(422)) / 1 * (-parseInt(o(433)) / 2) + parseInt(o(442)) / 3 + parseInt(o(420)) / 4 * (-parseInt(o(444)) / 5) + parseInt(o(430)) / 6 * (parseInt(o(446)) / 7) + parseInt(o(423)) / 8 + parseInt(o(443)) / 9 * (parseInt(o(431)) / 10) + -parseInt(o(437)) / 11 * (parseInt(o(438)) / 12)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = sv, i = lv();;) try {
-    if (408489 == parseInt(o(224)) / 1 * (parseInt(o(162)) / 2) + -parseInt(o(155)) / 3 * (-parseInt(o(231)) / 4) + parseInt(o(229)) / 5 * (-parseInt(o(190)) / 6) + -parseInt(o(228)) / 7 * (-parseInt(o(226)) / 8) + -parseInt(o(202)) / 9 * (-parseInt(o(209)) / 10) + -parseInt(o(201)) / 11 * (parseInt(o(193)) / 12) + parseInt(o(179)) / 13 * (parseInt(o(150)) / 14)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = Iv, i = fv();;) try {
-    if (690912 == parseInt(o(289)) / 1 + parseInt(o(306)) / 2 * (parseInt(o(297)) / 3) + parseInt(o(274)) / 4 * (-parseInt(o(292)) / 5) + -parseInt(o(293)) / 6 * (-parseInt(o(294)) / 7) + parseInt(o(280)) / 8 + -parseInt(o(283)) / 9 * (parseInt(o(304)) / 10) + parseInt(o(303)) / 11 * (parseInt(o(307)) / 12)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = Tv, i = _v();;) try {
-    if (401387 == -parseInt(o(247)) / 1 * (parseInt(o(228)) / 2) + -parseInt(o(214)) / 3 + -parseInt(o(230)) / 4 + parseInt(o(303)) / 5 + -parseInt(o(292)) / 6 + -parseInt(o(198)) / 7 + parseInt(o(221)) / 8) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = Fv, i = Pv();;) try {
-    if (709462 == parseInt(o(230)) / 1 * (-parseInt(o(235)) / 2) + -parseInt(o(236)) / 3 * (parseInt(o(233)) / 4) + parseInt(o(231)) / 5 + -parseInt(o(237)) / 6 + parseInt(o(238)) / 7 + parseInt(o(232)) / 8 * (parseInt(o(234)) / 9) + -parseInt(o(229)) / 10 * (parseInt(o(239)) / 11)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function () {
-  for (var e = nf, t = of();;) try {
-    if (932836 == parseInt(e(291)) / 1 + parseInt(e(297)) / 2 * (-parseInt(e(311)) / 3) + -parseInt(e(289)) / 4 * (parseInt(e(288)) / 5) + -parseInt(e(284)) / 6 * (-parseInt(e(299)) / 7) + -parseInt(e(302)) / 8 * (parseInt(e(295)) / 9) + -parseInt(e(285)) / 10 * (-parseInt(e(294)) / 11) + parseInt(e(306)) / 12 * (parseInt(e(283)) / 13)) break;
-    t.push(t.shift());
-  } catch (e) {
-    t.push(t.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = pC, i = BC();;) try {
-    if (853836 == -parseInt(o(405)) / 1 + -parseInt(o(397)) / 2 + -parseInt(o(399)) / 3 * (-parseInt(o(400)) / 4) + parseInt(o(403)) / 5 + parseInt(o(398)) / 6 + parseInt(o(404)) / 7 * (-parseInt(o(408)) / 8) + -parseInt(o(396)) / 9 * (-parseInt(o(406)) / 10)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = kC, i = OC();;) try {
-    if (184282 == parseInt(o(496)) / 1 * (parseInt(o(518)) / 2) + -parseInt(o(514)) / 3 + parseInt(o(524)) / 4 * (parseInt(o(482)) / 5) + -parseInt(o(526)) / 6 * (parseInt(o(486)) / 7) + -parseInt(o(498)) / 8 + parseInt(o(516)) / 9 * (parseInt(o(501)) / 10) + parseInt(o(529)) / 11 * (parseInt(o(510)) / 12)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = VC, i = xC();;) try {
-    if (920428 == parseInt(o(436)) / 1 + parseInt(o(449)) / 2 + parseInt(o(385)) / 3 * (-parseInt(o(448)) / 4) + parseInt(o(374)) / 5 * (parseInt(o(380)) / 6) + -parseInt(o(422)) / 7 * (-parseInt(o(454)) / 8) + parseInt(o(406)) / 9 * (parseInt(o(391)) / 10) + -parseInt(o(382)) / 11 * (parseInt(o(456)) / 12)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = qC, i = WC();;) try {
-    if (660257 == parseInt(o(464)) / 1 * (parseInt(o(458)) / 2) + parseInt(o(446)) / 3 * (-parseInt(o(459)) / 4) + -parseInt(o(480)) / 5 + parseInt(o(478)) / 6 * (parseInt(o(474)) / 7) + -parseInt(o(472)) / 8 + -parseInt(o(479)) / 9 * (parseInt(o(455)) / 10) + parseInt(o(448)) / 11) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    (function(){ try { (function (e, t) {
-  for (var o = XC, i = ZC();;) try {
-    if (578138 == parseInt(o(168)) / 1 * (-parseInt(o(135)) / 2) + parseInt(o(160)) / 3 * (parseInt(o(170)) / 4) + -parseInt(o(132)) / 5 * (parseInt(o(169)) / 6) + parseInt(o(177)) / 7 + parseInt(o(178)) / 8 + -parseInt(o(191)) / 9 * (-parseInt(o(166)) / 10) + parseInt(o(162)) / 11 * (-parseInt(o(129)) / 12)) break;
-    i.push(i.shift());
-  } catch (e) {
-    i.push(i.shift());
-  }
-}()); } catch(e){} })();
-    console.log("✅ 初始化完成！");
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = Jh, i = e(); ;) try {
+          if (581243 === parseInt(o(508)) / 1 + -parseInt(o(510)) / 2 * (-parseInt(o(632)) / 3) + parseInt(o(517)) / 4 + -parseInt(o(593)) / 5 * (-parseInt(o(641)) / 6) + parseInt(o(502)) / 7 + -parseInt(o(583)) / 8 + -parseInt(o(511)) / 9) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }(Wh));
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = fp, i = Ip(); ;) try {
+          if (948680 == -parseInt(o(402)) / 1 + parseInt(o(382)) / 2 + -parseInt(o(400)) / 3 + parseInt(o(392)) / 4 + parseInt(o(386)) / 5 + -parseInt(o(384)) / 6 * (parseInt(o(387)) / 7) + parseInt(o(396)) / 8 * (-parseInt(o(394)) / 9)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = Qp, i = mp(); ;) try {
+          if (948294 == parseInt(o(143)) / 1 * (-parseInt(o(144)) / 2) + -parseInt(o(134)) / 3 * (parseInt(o(135)) / 4) + parseInt(o(120)) / 5 * (parseInt(o(121)) / 6) + parseInt(o(145)) / 7 * (-parseInt(o(127)) / 8) + parseInt(o(123)) / 9 + parseInt(o(128)) / 10 + -parseInt(o(138)) / 11 * (-parseInt(o(142)) / 12)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = Sp, i = _p(); ;) try {
+          if (332606 == parseInt(o(406)) / 1 * (parseInt(o(396)) / 2) + parseInt(o(401)) / 3 * (parseInt(o(402)) / 4) + -parseInt(o(403)) / 5 * (parseInt(o(398)) / 6) + parseInt(o(404)) / 7 * (parseInt(o(397)) / 8) + parseInt(o(395)) / 9 + parseInt(o(399)) / 10 * (parseInt(o(400)) / 11) + -parseInt(o(405)) / 12) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = Mp, i = bp(); ;) try {
+          if (845835 == -parseInt(o(414)) / 1 + parseInt(o(360)) / 2 * (parseInt(o(368)) / 3) + parseInt(o(363)) / 4 * (-parseInt(o(380)) / 5) + -parseInt(o(355)) / 6 + parseInt(o(374)) / 7 + -parseInt(o(352)) / 8 * (parseInt(o(397)) / 9) + parseInt(o(413)) / 10) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = Kp, i = qp(); ;) try {
+          if (565569 == -parseInt(o(491)) / 1 + -parseInt(o(492)) / 2 * (-parseInt(o(458)) / 3) + parseInt(o(510)) / 4 + -parseInt(o(515)) / 5 * (parseInt(o(452)) / 6) + -parseInt(o(507)) / 7 * (parseInt(o(490)) / 8) + parseInt(o(519)) / 9 * (parseInt(o(457)) / 10) + -parseInt(o(484)) / 11 * (-parseInt(o(470)) / 12)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = $p, i = ev(); ;) try {
+          if (468670 == -parseInt(o(422)) / 1 * (-parseInt(o(433)) / 2) + parseInt(o(442)) / 3 + parseInt(o(420)) / 4 * (-parseInt(o(444)) / 5) + parseInt(o(430)) / 6 * (parseInt(o(446)) / 7) + parseInt(o(423)) / 8 + parseInt(o(443)) / 9 * (parseInt(o(431)) / 10) + -parseInt(o(437)) / 11 * (parseInt(o(438)) / 12)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = sv, i = lv(); ;) try {
+          if (408489 == parseInt(o(224)) / 1 * (parseInt(o(162)) / 2) + -parseInt(o(155)) / 3 * (-parseInt(o(231)) / 4) + parseInt(o(229)) / 5 * (-parseInt(o(190)) / 6) + -parseInt(o(228)) / 7 * (-parseInt(o(226)) / 8) + -parseInt(o(202)) / 9 * (-parseInt(o(209)) / 10) + -parseInt(o(201)) / 11 * (parseInt(o(193)) / 12) + parseInt(o(179)) / 13 * (parseInt(o(150)) / 14)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = Iv, i = fv(); ;) try {
+          if (690912 == parseInt(o(289)) / 1 + parseInt(o(306)) / 2 * (parseInt(o(297)) / 3) + parseInt(o(274)) / 4 * (-parseInt(o(292)) / 5) + -parseInt(o(293)) / 6 * (-parseInt(o(294)) / 7) + parseInt(o(280)) / 8 + -parseInt(o(283)) / 9 * (parseInt(o(304)) / 10) + parseInt(o(303)) / 11 * (parseInt(o(307)) / 12)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = Tv, i = _v(); ;) try {
+          if (401387 == -parseInt(o(247)) / 1 * (parseInt(o(228)) / 2) + -parseInt(o(214)) / 3 + -parseInt(o(230)) / 4 + parseInt(o(303)) / 5 + -parseInt(o(292)) / 6 + -parseInt(o(198)) / 7 + parseInt(o(221)) / 8) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = Fv, i = Pv(); ;) try {
+          if (709462 == parseInt(o(230)) / 1 * (-parseInt(o(235)) / 2) + -parseInt(o(236)) / 3 * (parseInt(o(233)) / 4) + parseInt(o(231)) / 5 + -parseInt(o(237)) / 6 + parseInt(o(238)) / 7 + parseInt(o(232)) / 8 * (parseInt(o(234)) / 9) + -parseInt(o(229)) / 10 * (parseInt(o(239)) / 11)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function () {
+        for (var e = nf, t = of(); ;) try {
+          if (932836 == parseInt(e(291)) / 1 + parseInt(e(297)) / 2 * (-parseInt(e(311)) / 3) + -parseInt(e(289)) / 4 * (parseInt(e(288)) / 5) + -parseInt(e(284)) / 6 * (-parseInt(e(299)) / 7) + -parseInt(e(302)) / 8 * (parseInt(e(295)) / 9) + -parseInt(e(285)) / 10 * (-parseInt(e(294)) / 11) + parseInt(e(306)) / 12 * (parseInt(e(283)) / 13)) break;
+          t.push(t.shift());
+        } catch (e) {
+          t.push(t.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = pC, i = BC(); ;) try {
+          if (853836 == -parseInt(o(405)) / 1 + -parseInt(o(397)) / 2 + -parseInt(o(399)) / 3 * (-parseInt(o(400)) / 4) + parseInt(o(403)) / 5 + parseInt(o(398)) / 6 + parseInt(o(404)) / 7 * (-parseInt(o(408)) / 8) + -parseInt(o(396)) / 9 * (-parseInt(o(406)) / 10)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = kC, i = OC(); ;) try {
+          if (184282 == parseInt(o(496)) / 1 * (parseInt(o(518)) / 2) + -parseInt(o(514)) / 3 + parseInt(o(524)) / 4 * (parseInt(o(482)) / 5) + -parseInt(o(526)) / 6 * (parseInt(o(486)) / 7) + -parseInt(o(498)) / 8 + parseInt(o(516)) / 9 * (parseInt(o(501)) / 10) + parseInt(o(529)) / 11 * (parseInt(o(510)) / 12)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = VC, i = xC(); ;) try {
+          if (920428 == parseInt(o(436)) / 1 + parseInt(o(449)) / 2 + parseInt(o(385)) / 3 * (-parseInt(o(448)) / 4) + parseInt(o(374)) / 5 * (parseInt(o(380)) / 6) + -parseInt(o(422)) / 7 * (-parseInt(o(454)) / 8) + parseInt(o(406)) / 9 * (parseInt(o(391)) / 10) + -parseInt(o(382)) / 11 * (parseInt(o(456)) / 12)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = qC, i = WC(); ;) try {
+          if (660257 == parseInt(o(464)) / 1 * (parseInt(o(458)) / 2) + parseInt(o(446)) / 3 * (-parseInt(o(459)) / 4) + -parseInt(o(480)) / 5 + parseInt(o(478)) / 6 * (parseInt(o(474)) / 7) + -parseInt(o(472)) / 8 + -parseInt(o(479)) / 9 * (parseInt(o(455)) / 10) + parseInt(o(448)) / 11) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  (function () {
+    try {
+      (function (e, t) {
+        for (var o = XC, i = ZC(); ;) try {
+          if (578138 == parseInt(o(168)) / 1 * (-parseInt(o(135)) / 2) + parseInt(o(160)) / 3 * (parseInt(o(170)) / 4) + -parseInt(o(132)) / 5 * (parseInt(o(169)) / 6) + parseInt(o(177)) / 7 + parseInt(o(178)) / 8 + -parseInt(o(191)) / 9 * (-parseInt(o(166)) / 10) + parseInt(o(162)) / 11 * (-parseInt(o(129)) / 12)) break;
+          i.push(i.shift());
+        } catch (e) {
+          i.push(i.shift());
+        }
+      }());
+    } catch (e) { }
+  })();
+  console.log("✅ 初始化完成！");
 } catch (e) {
-    console.error("⚠️ 初始化过程中出现非致命错误:", e.message);
+  console.error("⚠️ 初始化过程中出现非致命错误:", e.message);
 }
 
 // ------------------------------------------------------------------
 // 4. 导出工具函数
 // ------------------------------------------------------------------
 module.exports = {
-    Jh,
-    fp,
-    Qp,
-    Sp,
-    Mp,
-    Kp,
-    $p,
-    sv,
-    Iv,
-    Tv,
-    Fv,
-    nf,
-    pC,
-    kC,
-    VC,
-    qC,
-    XC
+  Jh,
+  fp,
+  Qp,
+  Sp,
+  Mp,
+  Kp,
+  $p,
+  sv,
+  Iv,
+  Tv,
+  Fv,
+  nf,
+  pC,
+  kC,
+  VC,
+  qC,
+  XC
 };
 
 // 简单的自测逻辑
 if (require.main === module) {
-    console.log("\n--- 自测模式 ---");
-    const firstFunc = "Jh";
-    try {
-        console.log("测试调用 " + firstFunc + "(369):", module.exports[firstFunc](369));
-    } catch(e) {
-        console.log("测试调用失败 (索引可能无效):", e.message);
-    }
+  console.log("\n--- 自测模式 ---");
+  const firstFunc = "Tv";
+  try {
+    console.log("测试调用 " + firstFunc + "(255):", module.exports[firstFunc](252));
+  } catch (e) {
+    console.log("测试调用失败 (索引可能无效):", e.message);
+  }
 }
