@@ -203,7 +203,8 @@ class TeeService {
                     guid: params.guid || "mock_guid",
                     platform: params.platform || "10201",
                     cKey: "",
-                    encryptVer: "9.2"
+                    encryptVer: "9.2",
+                    // link_vid: params.link_vid || params.vid
                 };
                 let _cKey = "";
                 Object.defineProperty(requestParams, 'cKey', {
@@ -212,11 +213,18 @@ class TeeService {
                     enumerable: true, configurable: true
                 });
                 const mockContext = {
-                    playerInstanceId: "inst_ckey_gen",
-                    config: { enableTEE: true, isOfficialSite: true, tvkConfig: {}, businessConfig: { platform: params.platform || "10201" } },
+                    playerInstanceId: "0760fe8a97705892317da64d0b513e32", // 保持一致即可
+                    config: {
+                        enableTxEnc: false, // 【关键修改】改为 true
+                        enableTEE: true,
+                        isOfficialSite: true,
+                        tvkConfig: {},
+                        businessConfig: { platform: params.platform || "10201" }
+                    },
                     businessData: { h38: params.h38 || "", pq36: params.pq36 || "" },
                     reqParams: requestParams
                 };
+                console.warn("contextModifier 输入:", JSON.stringify(mockContext));
                 await fn(mockContext);
                 const finalKey = window._LAST_CKEY || requestParams.cKey;
                 return finalKey ? { success: true, data: finalKey } : { success: false, error: "Empty cKey" };
@@ -313,7 +321,7 @@ app.post('/api/tee/genCkey', async (req, res) => {
     try {
         const payload = req.body;
         const result = await teeService.contextModifier(payload);
-        res.json({ success: true, data: result });
+        res.json(result);
     } catch (err) {
         console.error("contextModifier 失败:", err);
         res.status(500).json({ success: false, error: err.message });
